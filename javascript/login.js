@@ -1,3 +1,8 @@
+const usernameForm = document.getElementById("usernameForm")
+const passwordForm = document.getElementById("passwordForm")
+const loginButton = document.getElementById("loginButton")
+
+
 var userLogin = null
 
 async function fetchDataByUrl(url){
@@ -5,11 +10,30 @@ async function fetchDataByUrl(url){
     const data = await response.json()
     return data;
 }
-/*
-fetchDataByUrl("http://localhost:8080/get/user/Danieluser").then(data => {
-    console.log(data)
+
+loginButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const testFailLogin = document.getElementById('loginFail')
+    
+    fetchDataByUrl("http://localhost:8080/get/user/" + usernameForm.value).then(data => {
+    
+    if(passwordForm.value === data.password){
+        testFailLogin.style.display = 'none'
+        loginButton.setAttribute("data-dismiss", "modal")
+    }else{
+        //password i input ikke passer med det password brugeren har
+        testFailLogin.style.display = 'block'
+        testFailLogin.innerHTML = "The password you've entered is incorrect."
+        
+    }
+}).catch(error => {
+    testFailLogin.style.display = 'block'
+    testFailLogin.innerHTML = "The username you've entered does not exist."
 })
-*/
-fetchDataByUrl("http://www.omdbapi.com/?t=titanic&apikey=8576545a").then(data => {
-    console.log(data)
+    
+
+
 })
+
+
+
