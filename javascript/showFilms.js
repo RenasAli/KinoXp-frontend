@@ -19,7 +19,6 @@ fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
         filmPoster.classList.add('filmPoster')
         filmContainerCol.appendChild(filmPoster)
 
-
         const filmContainerInfo = document.createElement('div')
         filmContainerInfo.classList.add('filmContainerInfo')  
         filmContainerCol.appendChild(filmContainerInfo)
@@ -29,7 +28,7 @@ fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
         filmContainerInfo.appendChild(title)
 
         const filmLength = document.createElement('p')
-        filmLength.innerHTML = 'Length: ' + data[i].film.lengthInMinutes + ' minutes'
+        filmLength.innerHTML = 'Length: ' + data[i].film.lengthInMinutes + ' min'
         filmContainerInfo.appendChild(filmLength)
     }
     

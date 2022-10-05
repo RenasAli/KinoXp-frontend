@@ -6,8 +6,11 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
+
     margin-left: 200px;
     margin-right: 200px;
+
 }
 
 .filmContainerCol{
@@ -30,4 +33,7 @@ body{
 .filmContainerInfo p{
     color: white;
     font-size: larger;
+}
+p{
+font-family: cursive;
 }
