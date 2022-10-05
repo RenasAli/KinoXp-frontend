@@ -1,0 +1,39 @@
+body{
+    background-color: #21221f;
+}
+
+.filmContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+
+    margin-left: 200px;
+    margin-right: 200px;
+
+}
+
+.filmContainerCol{
+    width: 20%;
+    margin: 20px;
+}
+
+.filmContainerInfo{
+    padding-left: 10px;
+    width: 100%;
+    height: auto;
+    background-color: #151515;
+    padding-bottom: 5px;
+    
+}
+
+.filmPoster{
+    width: 100%;
+}
+.filmContainerInfo p{
+    color: white;
+    font-size: larger;
+}
+p{
+font-family: cursive;
+}
