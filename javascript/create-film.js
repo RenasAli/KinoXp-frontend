@@ -32,31 +32,33 @@ function getInput() {
 
             let imageElement = document.createElement('img');
             imageElement.setAttribute("src", data.Poster)
-            
+            console.log(data);
+        
 
             movieContainer.replaceChildren(imageElement);
 
-            let movieBody = {
-                "title": data.Title
-                /*,
-                "genre":"Komedie",
-                "minimumAge": "12",
-                "lengthInMinutes":"140",
-                "description": "dfsdfsdfsdfsdfsdf"*/
-            }
-            console.log(movieBody)
-            console.log(movieBody.title)
-
             imageElement.addEventListener("click", e => {
-                fetch('http://localhost:8080/api/film/add-film?title=hej', {
-                    Method: 'GET',
-                    Headers: {
-                      Accept: 'application.json',
-                      'Content-Type': 'application/json'
-                    },
-                    //Body: movieBody.title,
-                    Cache: 'default'
-                  })
+            
+                let request = new XMLHttpRequest();
+                request.open("POST", "http://localhost:8080/api/film/add-film")
+
+                request.setRequestHeader("Accept", "application/json");
+                request.setRequestHeader("Content-Type", "application/json");
+
+                  
+                let movieData = `{
+                "title": ${JSON.stringify(data.Title)},
+                "genre": ${JSON.stringify(data.Genre)},
+                "minimumAge": ${JSON.stringify(data.Rated)},
+                "lengthInMinutes": ${JSON.parse(data.Runtime.substring(0, 4))},
+                "description": ${JSON.stringify(data.Plot)},
+                "actors": ${JSON.stringify(data.Actors)}
+                }`;
+
+                request.send(movieData);
+                
+
+        
 
             })
             
@@ -65,10 +67,4 @@ function getInput() {
         
 }
 function updateView(data) {
-    
-    
-    
-
-
-
 }
