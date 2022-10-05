@@ -17,9 +17,12 @@ loginButton.addEventListener('click', (e) => {
     
     fetchDataByUrl("http://localhost:8080/get/user/" + usernameForm.value).then(data => {
     
+
+    //man skal lige nu klikke 2 gange
     if(passwordForm.value === data.password){
         testFailLogin.style.display = 'none'
         loginButton.setAttribute("data-dismiss", "modal")
+        userLogin = data
     }else{
         //password i input ikke passer med det password brugeren har
         testFailLogin.style.display = 'block'
