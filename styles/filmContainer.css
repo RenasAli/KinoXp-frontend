@@ -1,5 +1,6 @@
 body{
-    background-color: #21221f;
+    background-color: #181A1B;
+    /*background-color: #21221f;*/
 }
 
 .filmContainer{
@@ -8,8 +9,8 @@ body{
     justify-content: center;
     
 
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 15%;
+    margin-right: 15%;
 
 }
 
@@ -35,5 +36,6 @@ body{
     font-size: larger;
 }
 p{
-font-family: cursive;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-weight: 400;
 }
