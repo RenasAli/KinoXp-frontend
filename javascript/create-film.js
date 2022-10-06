@@ -61,6 +61,8 @@ function getInput() {
                 request.send(movieData);
                 
 
+                //for at reset film i filmShowing
+                //resetFilms()
                 
 
         

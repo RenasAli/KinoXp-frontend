@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="../styles/style.css">
 <link rel="stylesheet" href="../styles/filmContainer.css">
+<link rel="stylesheet" href="../styles/createShowFilmContainer.css">
 </head>
 <body>
     
@@ -19,10 +20,77 @@
     <form class="form-inline">
       <button type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-target="#login" id="navLogIn">Log in</button>
       <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1"  id="navLogOut">Log out</button>
-      <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal" data-target="#exampleModal" id="modal2">Create film</button>
-      
+      <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-target="#exampleModal" id="modal2">Create film</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
     </form>
   </nav>
+
+
+
+
+   <!-- Modal  for createFilmShwoing-->
+<div class="modal fade" id="createFilmShowingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create Filmshowing</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <div id="createFilmShowingContainer" class="createFilmShowingContainer">
+            <!--
+            <div class="createFilmShowingCard">
+              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
+            </div>
+            <div class="createFilmShowingCard">
+              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
+            </div>
+            <div class="createFilmShowingCard">
+              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
+            </div>
+            <div class="createFilmShowingCard">
+              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
+            </div>
+            <div class="createFilmShowingCard">
+              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
+            </div>
+-->
+          </div>
+
+          
+            <form>
+              <div class="form-group">
+                <label for="createFilmName">Name of movie</label>
+                <input style="color: black;" type="text" class="form-control" id="createFilmName" placeholder="" readonly>
+              </div>
+              <div class="form-group">
+                <label for="createFilmLength">Enter length</label>
+                <input type="text" class="form-control" id="createFilmLength" placeholder="e.g 160">
+              </div>
+              <div class="form-group">
+                <label for="createFilmRoom">Enter room</label>
+                <input type="text" class="form-control" id="createFilmRoom" placeholder="e.g 1">
+              </div>
+              <div class="form-group">
+                <label for="createFilmTicketPrice">Enter bio ticketprice</label>
+                <input type="text" class="form-control" id="createFilmTicketPrice" placeholder="e.g 80">
+              </div>
+            </form>
+         
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -112,6 +180,7 @@
 <script src="../javascript/login.js"></script>
 <script src="../javascript/showFilms.js"></script>
 <script src="../javascript/create-film.js"></script>
+<script src="../javascript/create-film-showing.js"></script>
 
 
 

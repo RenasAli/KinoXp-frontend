@@ -4,6 +4,7 @@ const passwordForm = document.getElementById("passwordForm")
 const loginButton = document.getElementById("loginButton")
 const navLogOut = document.getElementById("navLogOut")
 const navLogIn = document.getElementById("navLogIn")
+const createFilmShowing = document.getElementById("createFilmShowingModalButton")
 
 
 var userLogin = null
@@ -13,7 +14,6 @@ async function fetchDataByUrl(url){
     const data = await response.json()
     return data;
 }
-
 
 
 
@@ -53,6 +53,7 @@ loginButton.addEventListener('click', (e) => {
         if(userLogin.type === 'admin'){
             whenAdmin()
         }
+       
         
         
 
@@ -78,8 +79,9 @@ loginButton.addEventListener('click', (e) => {
 
 function whenAdmin(){
     const createMovieButton = document.getElementById('modal2')
-    console.log(createMovieButton)
+    
     createMovieButton.style.display = 'block'
+    createFilmShowing.style.display = 'block'
 }
 
 

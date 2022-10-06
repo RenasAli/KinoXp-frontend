@@ -7,7 +7,7 @@ async function fetchDataByUrl(url){
     return data;
 }
 
-console.log(userLogin)
+
 fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
     for (let i = 0; i < data.length; i++) {
         const filmContainerCol = document.createElement('div')
