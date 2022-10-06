@@ -1,0 +1,45 @@
+.header2 {
+    min-height: 20vh;
+    width: 100%;
+    background-position: center;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 3%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-link ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 9px 45px;
+    position: relative;
+    color: whitesmoke;
+    font-size: 180%;
+}
+
+.nav-link ul li ::after{ /* Gør så det forandre sig når man tager musen over. */
+    content: '';
+    color: white;
+    width: 0%;
+    height: 6px;
+    background: #740616;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-link ul li :hover::after {
+    width: 100%;
+    height: 4px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
