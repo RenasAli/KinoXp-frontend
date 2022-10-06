@@ -1,19 +1,19 @@
 const container = document.querySelector(".filmContainer")
 
-console.log(userLogin)
+
 async function fetchDataByUrl(url){
     const response = await fetch(url)
     const data = await response.json()
     return data;
 }
 
-
+console.log(userLogin)
 fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
     for (let i = 0; i < data.length; i++) {
         const filmContainerCol = document.createElement('div')
         filmContainerCol.classList.add('filmContainerCol')  
         container.appendChild(filmContainerCol)  
-         
+        
         const filmPoster = document.createElement('img')
         filmPoster.src = data[i].film.poster
         filmPoster.classList.add('filmPoster')

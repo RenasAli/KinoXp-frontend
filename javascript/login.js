@@ -6,7 +6,7 @@ const navLogOut = document.getElementById("navLogOut")
 const navLogIn = document.getElementById("navLogIn")
 
 
-var userLogin = 'hej'
+var userLogin = null
 
 async function fetchDataByUrl(url){
     const response = await fetch(url)

@@ -28,45 +28,46 @@ function getInput() {
         "&apikey=" + API_KEY
         )
         .then (data => {
-            console.log(data)
-            console.log(data.Poster);
+            
 
             let imageElement = document.createElement('img');
             imageElement.setAttribute("src", data.Poster)
-            
+            console.log(data);
+        
 
             movieContainer.replaceChildren(imageElement);
 
-            let movieBody = {
-                "title": data.Title,
-                "genre":"Komedie",
-                "minimumAge": "12",
-                "lengthInMinutes":"140",
-                "description": "dfsdfsdfsdfsdfsdf"
-            }
-
             imageElement.addEventListener("click", e => {
-                fetch('http://localhost:8080/api/film/add-film', {
-                    Method: 'POST',
-                    Headers: {
-                      Accept: 'application.json',
-                      'Content-Type': 'application/json'
-                    },
-                    Body: movieBody,
-                    Cache: 'default'
-                  })
+            
+                let request = new XMLHttpRequest();
+                request.open("POST", "http://localhost:8080/api/film/add-film")
+
+                request.setRequestHeader("Accept", "application/json");
+        
+                // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
+                request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+                  
+                let movieData = `{
+                "title": ${JSON.stringify(data.Title)},
+                "genre": ${JSON.stringify(data.Genre)},
+                "rated": ${JSON.stringify(data.Rated)},
+                "lengthInMinutes": ${JSON.parse(data.Runtime.substring(0, 4))},
+                "description": ${JSON.stringify(data.Plot)},
+                "poster": ${JSON.stringify(data.Poster)},
+                "actors": ${JSON.stringify(data.Actors)}
+                }`;
+
+                request.send(movieData);
+                
+
+                
+
+        
 
             })
-            console.log(movieContainer);
+            
         })
         
         
-}
-function updateView(data) {
-    
-    
-    
-
-
-
 }
