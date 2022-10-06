@@ -19,6 +19,8 @@ createFilmShowingButton.addEventListener('click', addDataToCreateFilmContainer =
     const filmContainer = document.querySelector('.createFilmShowingContainer')
     fetchDataByUrl('http://localhost:8080/api/film/all').then(data =>{
         console.log(data)
+        // for at tømme containeren inden vi adder alle elementerne
+        filmContainer.innerHTML = ''
         for (let i = 0; i < data.length; i++) {
             const card = document.createElement('div')
             card.classList.add('createFilmShowingCard')
@@ -38,13 +40,6 @@ createFilmShowingButton.addEventListener('click', addDataToCreateFilmContainer =
 
         
     })
-},{once:true})
+})
 
-}
-
-var resetFilms = () => {
-    const filmShowingContainer = document.querySelector('.createFilmShowingContainer')
-    filmShowingContainer.innerHTML = ""
-    createFilmShowingButton.removeEventListener('click',addDataToCreateFilmContainer)
-    addEventListenerToCreateFilmShowing()
 }
