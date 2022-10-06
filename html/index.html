@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../styles/style.css">
 <link rel="stylesheet" href="../styles/filmContainer.css">
 <link rel="stylesheet" href="../styles/createShowFilmContainer.css">
+<link rel="stylesheet" href="../styles/createFilmContainer.css">
 </head>
 <body>
     
@@ -21,7 +22,7 @@
       <button type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-target="#login" id="navLogIn">Log in</button>
       <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1"  id="navLogOut">Log out</button>
       <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-target="#exampleModal" id="modal2">Create film</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
+      <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
     </form>
   </nav>
 
@@ -72,7 +73,7 @@
               </div>
               <div class="form-group">
                 <label for="createFilmRoom">Enter room</label>
-                <input type="text" class="form-control" id="createFilmRoom" placeholder="e.g 1">
+                <input type="text" class="form-control" id="createFilmRoom" placeholder="e.g 1 or 2">
               </div>
               <div class="form-group">
                 <label for="createFilmTicketPrice">Enter bio ticketprice</label>
@@ -86,7 +87,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="createFilmShowingConfirmButton">Add</button>
         </div>
       </div>
     </div>
@@ -99,29 +100,30 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabe">Create Film</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabelll">Create Film</h1>
         <button type="button" class="btn-close border-0" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close">x</button>
       </div>
       <div class="modal-body">
           
        
 
-          <div>
+          <div class="createFilmContainer">
               <input type="text" id="search-film-input" placeholder="Search here...">
               <div>
                   <button type="button" class="btn btn-secondary" id="search-film-button">Search</button>
               </div>
-              <div id="movie-container">
-                  
-
-              </div>
+          
 
           </div>
 
+          <div id="movie-container">
+                  
+
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+   
       </div>
     </div>
   </div>

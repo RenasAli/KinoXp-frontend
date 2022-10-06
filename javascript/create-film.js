@@ -22,14 +22,14 @@ async function fetchDataByUrl(url){
 function getInput() {
 
     console.log(searchFilmInput.value);
-    let data = fetchDataByUrl(
+    fetchDataByUrl(
         "http://www.omdbapi.com/?t=" 
         + searchFilmInput.value + 
         "&apikey=" + API_KEY
         )
         .then (data => {
             
-
+            
             let imageElement = document.createElement('img');
             imageElement.setAttribute("src", data.Poster)
             console.log(data);
@@ -46,8 +46,6 @@ function getInput() {
         
                 // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
                 request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-                  
                 let movieData = `{
                 "title": ${JSON.stringify(data.Title)},
                 "genre": ${JSON.stringify(data.Genre)},
@@ -62,7 +60,7 @@ function getInput() {
                 
 
                 //for at reset film i filmShowing
-                //resetFilms()
+                
                 
 
         

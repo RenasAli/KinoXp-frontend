@@ -1,5 +1,11 @@
+
+
+
+var refreshFilmShowingContainer = () => {
+
 const container = document.querySelector(".filmContainer")
 
+container.replaceChildren()
 
 async function fetchDataByUrl(url){
     const response = await fetch(url)
@@ -33,3 +39,7 @@ fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
     }
     
 })
+}
+
+
+refreshFilmShowingContainer()
