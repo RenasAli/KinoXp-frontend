@@ -6,7 +6,7 @@ const navLogOut = document.getElementById("navLogOut")
 const navLogIn = document.getElementById("navLogIn")
 
 
-var userLogin = null
+var userLogin = 'hej'
 
 async function fetchDataByUrl(url){
     const response = await fetch(url)
@@ -49,8 +49,11 @@ loginButton.addEventListener('click', (e) => {
             location.reload()
         })
 
-
-        whenAdmin()
+        
+        if(userLogin.type === 'admin'){
+            whenAdmin()
+        }
+        
         
 
         

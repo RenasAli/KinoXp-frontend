@@ -21,14 +21,15 @@ async function fetchDataByUrl(url){
 
 function getInput() {
 
-   
+    console.log(searchFilmInput.value);
     let data = fetchDataByUrl(
         "http://www.omdbapi.com/?t=" 
         + searchFilmInput.value + 
         "&apikey=" + API_KEY
         )
         .then (data => {
-            
+            console.log(data)
+            console.log(data.Poster);
 
             let imageElement = document.createElement('img');
             imageElement.setAttribute("src", data.Poster)
@@ -37,29 +38,26 @@ function getInput() {
             movieContainer.replaceChildren(imageElement);
 
             let movieBody = {
-                "title": data.Title
-                /*,
+                "title": data.Title,
                 "genre":"Komedie",
                 "minimumAge": "12",
                 "lengthInMinutes":"140",
-                "description": "dfsdfsdfsdfsdfsdf"*/
+                "description": "dfsdfsdfsdfsdfsdf"
             }
-            console.log(movieBody)
-            console.log(movieBody.title)
 
             imageElement.addEventListener("click", e => {
-                fetch('http://localhost:8080/api/film/add-film?title=hej', {
-                    Method: 'GET',
+                fetch('http://localhost:8080/api/film/add-film', {
+                    Method: 'POST',
                     Headers: {
                       Accept: 'application.json',
                       'Content-Type': 'application/json'
                     },
-                    //Body: movieBody.title,
+                    Body: movieBody,
                     Cache: 'default'
                   })
 
             })
-            
+            console.log(movieContainer);
         })
         
         
