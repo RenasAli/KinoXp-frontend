@@ -11,12 +11,17 @@ body{
 
     margin-left: 15%;
     margin-right: 15%;
-
+    
+}
+.filmContainerCol:hover{
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .filmContainerCol{
     width: 20%;
     margin: 20px;
+    transition: transform 0.2s;
 }
 
 .filmContainerInfo{

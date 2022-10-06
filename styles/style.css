@@ -1,0 +1,8 @@
+#navBarForm button{
+    font-size: 23px;
+    font-weight: bold;
+
+}
+#navLogo:hover{
+    cursor: pointer;
+}

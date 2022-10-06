@@ -16,13 +16,14 @@
     
     
   <nav style="height: 80px;" class="navbar navbar-dark bg-dark justify-content-around">
-    <img src="../pictures/Logo.png" alt="asdfsd" style="width: 100px">
+    <img id="navLogo" src="../pictures/Logo.png" alt="asdfsd" style="width: 100px">
     <!--<a class="navbar-brand">Navbar</a> -->
-    <form class="form-inline">
-      <button type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-target="#login" id="navLogIn">Log in</button>
-      <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1"  id="navLogOut">Log out</button>
-      <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-target="#exampleModal" id="modal2">Create film</button>
-      <button style="display: none;" type="button" class="btn btn-primary ml-1 mr-1" data-toggle="modal" data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
+    <form class="form-inline" id="navBarForm">
+      <button type="button" class="btn btn-dark ml-1 mr-1 bold" id="navHome">Home</button>
+      <button type="button" class="btn btn-dark ml-1 mr-1" data-toggle="modal" data-target="#login" id="navLogIn">Log in</button>
+      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1"  id="navLogOut">Log out</button>
+      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1" data-toggle="modal" data-target="#exampleModal" id="modal2">Create film</button>
+      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1" data-toggle="modal" data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
     </form>
   </nav>
 
@@ -164,6 +165,17 @@
 
 
 
+
+
+
+
+
+  
+
+
+
+
+
   <div class="filmContainer"></div>
 
 
@@ -183,6 +195,7 @@
 <script src="../javascript/showFilms.js"></script>
 <script src="../javascript/create-film.js"></script>
 <script src="../javascript/create-film-showing.js"></script>
+<script src="../javascript/fetch.js"></script>
 
 
 

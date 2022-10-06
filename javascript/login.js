@@ -9,13 +9,6 @@ const createFilmShowing = document.getElementById("createFilmShowingModalButton"
 
 var userLogin = null
 
-async function fetchDataByUrl(url){
-    const response = await fetch(url)
-    const data = await response.json()
-    return data;
-}
-
-
 
 loginButton.addEventListener('click', (e) => {
     e.preventDefault();

@@ -12,13 +12,6 @@ let movieContainer = document.querySelector('#movie-container');
 searchFilmButton.addEventListener('click', getInput);
 
 
-
-async function fetchDataByUrl(url){
-    const response = await fetch(url)
-    const data = await response.json()
-    return data;
-}
-
 function getInput() {
 
     console.log(searchFilmInput.value);
