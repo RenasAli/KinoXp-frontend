@@ -48,10 +48,19 @@
                 if(currentNumber === 3){
                     currentNumber = 0
                 }
-            },3000)
+            },4000)
            
 
-    },4000)
+    },5000)
     
 
   
+    initialisePosters()
+
+
+    function initialisePosters(){
+      setTimeout(() => {
+        console.log(posters)
+      },100)
+      
+    }

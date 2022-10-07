@@ -1,17 +1,11 @@
 
-
+var posters = []
 
 var refreshFilmShowingContainer = () => {
 
 const container = document.querySelector(".filmContainer")
 
 container.replaceChildren()
-
-async function fetchDataByUrl(url){
-    const response = await fetch(url)
-    const data = await response.json()
-    return data;
-}
 
 
 fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
@@ -25,6 +19,8 @@ fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
         filmPoster.src = data[i].film.poster
         filmPoster.classList.add('filmPoster')
         filmContainerCol.appendChild(filmPoster)
+
+        posters.push(data[i].film.poster)
 
         const filmContainerInfo = document.createElement('div')
         filmContainerInfo.classList.add('filmContainerInfo')  
