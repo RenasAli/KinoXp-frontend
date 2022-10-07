@@ -18,6 +18,7 @@ fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
     for (let i = 0; i < data.length; i++) {
         const filmContainerCol = document.createElement('div')
         filmContainerCol.classList.add('filmContainerCol')  
+        filmContainerCol.classList.add('filmContainerPosterHover')
         container.appendChild(filmContainerCol)  
         
         const filmPoster = document.createElement('img')

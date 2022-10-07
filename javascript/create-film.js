@@ -25,7 +25,7 @@ function getInput() {
             
             let imageElement = document.createElement('img');
             imageElement.setAttribute("src", data.Poster)
-            console.log(data);
+            imageElement.classList.add('filmContainerPosterHover')
         
 
             movieContainer.replaceChildren(imageElement);

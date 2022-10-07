@@ -2,7 +2,7 @@
     const items = carousel.querySelectorAll(".carousel__item");
     const buttons = carousel.querySelectorAll(".carousel__button");
   
-
+/*
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', (e) => {
 
@@ -18,7 +18,7 @@
         })
         
     }
-
+*/
 
   
     // Select the first item on page load

@@ -25,6 +25,7 @@ createFilmShowingButton.addEventListener('click', addDataToCreateFilmContainer =
             card.classList.add('createFilmShowingCard')
             filmContainer.appendChild(card)
             const imgPoster = document.createElement('img')
+            imgPoster.classList.add('filmContainerPosterHover')
             imgPoster.src = data[i].poster
             imgPoster.style.width = "100%"
             card.appendChild(imgPoster)

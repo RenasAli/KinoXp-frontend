@@ -13,7 +13,7 @@ body{
     margin-right: 15%;
     
 }
-.filmContainerCol:hover{
+.filmContainerPosterHover:hover{    
     cursor: pointer;
     transform: scale(1.05);
 }
