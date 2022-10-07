@@ -35,6 +35,8 @@ body{
 
 .filmPoster{
     width: 100%;
+    /* ellers bliver nogle af posterne fucked */
+    max-height: 370px;
 }
 .filmContainerInfo p{
     color: white;

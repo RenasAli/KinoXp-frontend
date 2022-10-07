@@ -23,7 +23,7 @@ fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
         const poster = {id:data[i].film.id,poster:data[i].film.poster,title:data[i].film.title}
 
         posters.push(poster)
-
+        console.log(data[i])
         const filmContainerInfo = document.createElement('div')
         filmContainerInfo.classList.add('filmContainerInfo')  
         filmContainerCol.appendChild(filmContainerInfo)
@@ -36,6 +36,19 @@ fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
         const filmLength = document.createElement('p')
         filmLength.innerHTML = 'Length: ' + data[i].film.lengthInMinutes + ' min'
         filmContainerInfo.appendChild(filmLength)
+
+        const filmGenre = document.createElement('p')
+        filmGenre.innerHTML = 'Genre: ' + data[i].film.genre 
+        filmContainerInfo.appendChild(filmGenre)
+
+        const filmDate = document.createElement('p')
+        filmDate.innerHTML = 'Date: ' + data[i].date 
+        filmContainerInfo.appendChild(filmDate)
+
+        const filmTime = document.createElement('p')
+        filmTime.innerHTML = 'Time: ' + data[i].time 
+        filmContainerInfo.appendChild(filmTime)
+
     }
     
 })
