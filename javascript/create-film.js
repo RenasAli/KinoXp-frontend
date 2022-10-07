@@ -49,6 +49,7 @@ function getInput() {
                 "actors": ${JSON.stringify(data.Actors)}
                 }`;
 
+                console.log(movieData)
                 request.send(movieData);
                 
 

@@ -1,115 +1,143 @@
 body{
-    overflow-x: hidden;
+  overflow-x: hidden;
+  background-color: black;
 }
 /*
 
 .containerCarousel{
-    height: 60vh;
-    object-fit: cover;
+  height: 60vh;
+  object-fit: cover;
 }
 
 */
 
 .carousel {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    background: black;
-    padding-top: 30px;
-  }
-  .carousel p{
-    color: #ffffff;
-    text-shadow: 2px 2px 4px #ffffff;
-    top: 15px;
-    font-weight: bold;
-  }
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: black;
+
+}
+.carousel p{
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #ffffff;
+  top: 15px;
+  font-weight: bold;
   
-  .carousel__item {
-    height: 500px;
-    width: 50%;
-    
-    padding: 1em;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bold;
-    font-size: 2em;
-    color: #ffffff;
-    display: none;
-  }
-  
-  .carousel__item--selected {
-    display: block;
-  }
-  
-  .carousel__nav {
-    width: 100%;
-    padding: 20px 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-  }
-  
-  .carousel__button {
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .carousel__button--selected {
-    background: rgba(255, 255, 255, 0.5);
-  }
-  
+}
+
+.carousel__item {
+  height: 500px;
+  width: 100%;
+  padding: 0em;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  color: #ffffff;
+  display: none;
+}
+
+.carousel__item--selected {
+  display: block;
+}
+
+.carousel__nav {
+  width: 100%;
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.carousel__button {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel__button--selected {
+  background: rgba(255, 255, 255, 0.5);
+}
 
 
 
-  /* animation */
+
+/* animation */
 
 .carousel__item_right{
-    animation-duration: 1s;
-    animation-name: slideRight;
-    position: relative;
+  animation-duration: 1s;
+  animation-name: slideRight;
+  position: relative;
 
 }
 @keyframes slideRight {
-    from {left: -2000px}
-    to {left: 0px}
-  }
+  from {left: -2000px}
+  to {left: 0px}
+}
 
-  .carousel__item_left{
-    animation-duration: 1s;
-    animation-name: slideLeft;
-    position: relative;
+.carousel__item_left{
+  animation-duration: 1s;
+  animation-name: slideLeft;
+  position: relative;
 
 }
 @keyframes slideLeft {
-    from {left: 0px}
-    to {left: 2000px}
-  }
+  from {left: 0px}
+  to {left: 2000px}
+}
 
 
 
 
 
-  /*design i boksene */
-  .carousel_content_img{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/*design i boksene */
+.carousel_content_img{
+  display: flex;
+  justify-content: center;
+  
 
-  }
-  .carousel_content img{
-    width: 300px;
-  }
-  .carousel_content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .carousel p{
-    position: absolute;
-    font-size: 20px;
-  }
+}
+.carousel_content img{
+  height: 500px;
+  width: 100%;
+ object-fit: cover;
+ object-position: 20% 20%;
+
+ /*Blur effect*/
+ filter: blur(5px);
+-webkit-filter: blur(3px);
+
+}
+
+/*https://www.w3schools.com/howto/howto_css_blurred_background.asp*/
+.carousel_text{
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+color: white;
+font-weight: bold;
+border: 3px solid #f1f1f1;
+position: static;
+top: 50%;
+left: 50%;
+transform: translate(0%, -100%);
+/*Placerer den foran billedet*/
+z-index: 2;
+width: 30%;
+padding: 20px;
+text-align: center;
+
+}
+
+.carousel_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.carousel p{
+  position: absolute;
+  font-size: 20px;
+}

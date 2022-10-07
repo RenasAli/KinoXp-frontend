@@ -14,8 +14,7 @@
 <link rel="stylesheet" href="../styles/slider.css">
 </head>
 <body>
-    
-    
+
   <nav style="height: 80px;" class="navbar navbar-dark bg-dark justify-content-around">
     <img id="navLogo" src="../pictures/Logo.png" alt="asdfsd" style="width: 100px">
     <!--<a class="navbar-brand">Navbar</a> -->
@@ -31,25 +30,43 @@
 
 
 <!--slider-->
-  <div class="carousel">
-    <p>Watch all your favorite movies here</p>
-    <div class="carousel__item">
-      <div class="carousel_content">
-        <div class="carousel_content_img">
-        <img src="https://sm.ign.com/t/ign_za/gallery/s/spider-man/spider-man-far-from-home-official-movie-posters_ex7e.1080.jpg" alt="">
-        <img src="https://sm.ign.com/t/ign_za/gallery/s/spider-man/spider-man-far-from-home-official-movie-posters_ex7e.1080.jpg" alt="">
-        <img src="https://sm.ign.com/t/ign_za/gallery/s/spider-man/spider-man-far-from-home-official-movie-posters_ex7e.1080.jpg" alt="">
-      </div>
-      </div>
+<div class="carousel">
+  <div class="carousel__item">
+    <div class="carousel_content">
+      <div class="carousel_content_img">
+      
     </div>
-    <div class="carousel__item">Content #2</div>
-    <div class="carousel__item">Content #3</div>
-    <div class="carousel__nav">
-      <span class="carousel__button"></span>
-      <span class="carousel__button"></span>
-      <span class="carousel__button"></span>
+     <!--BannerText
+  <div class="carousel_text"><h1>Spider-Man™: Far From Home</h1>
+    <button>KØB BILLET</button>
+  </div>-->
+    </div>
+ 
   </div>
+  
+  
+  <div class="carousel__item">
+    <div class="carousel_content">
+      <div class="carousel_content_img">
+      
+    </div>
+    </div>
+
   </div>
+  <div class="carousel__item">
+    <div class="carousel_content">
+      <div class="carousel_content_img">
+     
+    </div>
+    </div>
+
+  </div>
+  <div class="carousel__nav">
+    <span class="carousel__button"></span>
+    <span class="carousel__button"></span>
+    <span class="carousel__button"></span>
+</div>
+</div>
 
 
 
@@ -68,22 +85,7 @@
         <div class="modal-body">
           
           <div id="createFilmShowingContainer" class="createFilmShowingContainer">
-            <!--
-            <div class="createFilmShowingCard">
-              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
-            </div>
-            <div class="createFilmShowingCard">
-              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
-            </div>
-            <div class="createFilmShowingCard">
-              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
-            </div>
-            <div class="createFilmShowingCard">
-              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
-            </div>
-            <div class="createFilmShowingCard">
-              <img style="width: 100%;" class="createFilmShowingCardImg" src="https://i.pinimg.com/originals/08/4c/1f/084c1f1e526130374439ef41c1577ce8.jpg" alt="">
-            </div>
+           
 -->
           </div>
 
@@ -93,10 +95,12 @@
                 <label for="createFilmName">Name of movie</label>
                 <input style="color: black;" type="text" class="form-control" id="createFilmName" placeholder="" readonly>
               </div>
+              <!--  
               <div class="form-group">
                 <label for="createFilmLength">Enter length</label>
                 <input type="text" class="form-control" id="createFilmLength" placeholder="e.g 160">
               </div>
+              -->
               <div class="form-group">
                 <label for="createFilmRoom">Enter room</label>
                 <input type="text" class="form-control" id="createFilmRoom" placeholder="e.g 1 or 2">
@@ -105,7 +109,19 @@
                 <label for="createFilmTicketPrice">Enter bio ticketprice</label>
                 <input type="text" class="form-control" id="createFilmTicketPrice" placeholder="e.g 80">
               </div>
-            </form>
+              <label for="startDateLabel">Start date:</label>
+              <div class="form-group">
+              <input class="form-control" type="date" id="createFilmStartDate" 
+               value="2022-07-01"
+               min="2022-07-10" max="2023-12-31">
+              </div>
+              
+              <label for="startTimeLabel">Time for movie start</label>
+              <div class="form-group">
+              <input class="form-control" type="time" id="createFilmStartTime"
+               required>
+            </div>
+              </form>
          
 
 

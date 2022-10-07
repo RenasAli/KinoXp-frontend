@@ -76,18 +76,20 @@ createFilmShowingConfirmButton.addEventListener('click', (e) => {
 
     // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    const createFilmLength = document.getElementById('createFilmLength')
+    const createFilmStartDate = document.getElementById('createFilmStartDate')
+    const createFilmStartTime = document.getElementById('createFilmStartTime')
     const createFilmRoom = document.getElementById('createFilmRoom')
     const createFilmTicketPrice = document.getElementById('createFilmTicketPrice')
       
 
     let movieShowingData = `{
-        "length": ${JSON.parse(createFilmLength.value)},
+        "time": ${JSON.stringify(createFilmStartTime.value)},
+        "date": ${JSON.stringify(createFilmStartDate.value)},
         "film": ${JSON.stringify(movieData)},
         "room": ${JSON.stringify(createFilmRoom.value)},
         "price": ${JSON.parse(createFilmTicketPrice.value)}
         }`;
-
+        console.log(movieShowingData)
     
     
     request.send(movieShowingData);

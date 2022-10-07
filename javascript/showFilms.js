@@ -13,14 +13,16 @@ fetchDataByUrl("http://localhost:8080/allFilmShowing").then(data => {
         const filmContainerCol = document.createElement('div')
         filmContainerCol.classList.add('filmContainerCol')  
         filmContainerCol.classList.add('filmContainerPosterHover')
-        container.appendChild(filmContainerCol)  
+        container.appendChild(filmContainerCol)
         
         const filmPoster = document.createElement('img')
         filmPoster.src = data[i].film.poster
         filmPoster.classList.add('filmPoster')
         filmContainerCol.appendChild(filmPoster)
 
-        posters.push(data[i].film.poster)
+        const poster = {id:data[i].film.id,poster:data[i].film.poster,title:data[i].film.title}
+
+        posters.push(poster)
 
         const filmContainerInfo = document.createElement('div')
         filmContainerInfo.classList.add('filmContainerInfo')  

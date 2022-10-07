@@ -60,7 +60,30 @@
 
     function initialisePosters(){
       setTimeout(() => {
-        console.log(posters)
+        const carouselContentImg = document.querySelectorAll('.carousel_content_img')
+        const carouselContent = document.querySelectorAll('.carousel_content')
+    
+        console.log(carouselContentImg)
+        //Shuffle the posters
+        const shuffledPosters = posters.sort((a, b) => 0.5 - Math.random());
+        console.log(shuffledPosters)
+        for (let i = 0; i < carouselContentImg.length; i++) {
+          const img = document.createElement('img')
+          img.src = shuffledPosters[i].poster
+          carouselContentImg[i].appendChild(img)
+          
+          
+          const div = document.createElement('div')
+          div.classList.add('carousel_text')
+          const h1 = document.createElement('h1')
+          h1.innerHTML = shuffledPosters[i].title
+          div.appendChild(h1)
+          const button = document.createElement('button')
+          button.innerHTML = 'Buy Ticket'
+          div.appendChild(button)
+          carouselContent[i].appendChild(div)
+          
+        }
       },100)
       
     }
