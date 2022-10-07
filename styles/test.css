@@ -14,8 +14,14 @@ body{
     position: relative;
     display: flex;
     justify-content: center;
-    background: grey;
+    background: black;
     padding-top: 30px;
+  }
+  .carousel p{
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #ffffff;
+    top: 15px;
+    font-weight: bold;
   }
   
   .carousel__item {
