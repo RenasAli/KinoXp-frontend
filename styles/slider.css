@@ -108,16 +108,31 @@ body{
  object-fit: cover;
  object-position: 20% 20%;
 
- /*Blur effect*/
+ /*Blur effect
  filter: blur(5px);
--webkit-filter: blur(3px);
+-webkit-filter: blur(3px);*/
 
+
+}
+
+.carousel_content_shadow{
+  /*Absolute i forhold til den div den sidder i? Det virker i hvert fald*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #202125;
+  background: linear-gradient(0deg,#202125 0,rgba(32,33,37,0) 50%,#202125 100%);
+  z-index: 2;
 }
 
 /*https://www.w3schools.com/howto/howto_css_blurred_background.asp*/
 .carousel_text{
+  /*
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-color: white;
+
+ color: white;
 font-weight: bold;
 border: 3px solid #f1f1f1;
 position: static;
@@ -125,10 +140,11 @@ top: 50%;
 left: 50%;
 transform: translate(0%, -100%);
 /*Placerer den foran billedet*/
-z-index: 2;
+z-index: 3;
 width: 30%;
 padding: 20px;
 text-align: center;
+
 
 }
 

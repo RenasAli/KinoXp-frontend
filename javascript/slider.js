@@ -28,7 +28,7 @@
 
     let currentNumber = 0;
 
-
+/*
     setInterval(() => {
         items.forEach(item =>{
             item.classList.remove("carousel__item--selected")
@@ -53,7 +53,7 @@
 
     },5000)
     
-
+*/
   
     initialisePosters()
 
@@ -62,6 +62,7 @@
       setTimeout(() => {
         const carouselContentImg = document.querySelectorAll('.carousel_content_img')
         const carouselContent = document.querySelectorAll('.carousel_content')
+        const carouselContentShadow = document.querySelectorAll('.carousel_content_shadow')
     
         console.log(carouselContentImg)
         //Shuffle the posters
@@ -71,7 +72,6 @@
           const img = document.createElement('img')
           img.src = shuffledPosters[i].poster
           carouselContentImg[i].appendChild(img)
-          
           
           const div = document.createElement('div')
           div.classList.add('carousel_text')
