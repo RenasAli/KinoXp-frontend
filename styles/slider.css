@@ -122,8 +122,9 @@ body{
   left: 0;
   right: 0;
   bottom: 0;
-  background: #202125;
-  background: linear-gradient(0deg,#202125 0,rgba(32,33,37,0) 50%,#202125 100%);
+    /*https://cssgradient.io/*/
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,1) 100%);
   z-index: 2;
 }
 
@@ -131,23 +132,36 @@ body{
 .carousel_text{
   /*
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-
- color: white;
+font-family: 'Segoe UI', 'Arial';
+color: white;
+/*border: 3px solid #f1f1f1;*/
 font-weight: bold;
-border: 3px solid #f1f1f1;
 position: static;
-top: 50%;
-left: 50%;
-transform: translate(0%, -100%);
+/*top: 50%;
+left: 50%;*/
+transform: translate(-20%, -100%);
 /*Placerer den foran billedet*/
 z-index: 3;
 width: 30%;
 padding: 20px;
 text-align: center;
-
-
 }
-
+.carousel_text button{
+  background-image: initial;
+  background-color: #88001b;
+  color: white;
+  border-color: #bc0428;
+  box-shadow: none;
+  border-radius: 40px;
+  font-size: 25px; 
+  width: 25%; 
+  height:auto;
+}
+.carousel_text button:hover{
+  background-color: #5a0314;
+  color: white;
+  border-color: #83041e;
+}
 .carousel_content{
   display: flex;
   flex-direction: column;

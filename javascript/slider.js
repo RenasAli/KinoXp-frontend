@@ -28,7 +28,6 @@
 
     let currentNumber = 0;
 
-/*
     setInterval(() => {
         items.forEach(item =>{
             item.classList.remove("carousel__item--selected")
@@ -53,7 +52,7 @@
 
     },5000)
     
-*/
+
   
     initialisePosters()
 
