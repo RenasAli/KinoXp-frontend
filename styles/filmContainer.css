@@ -75,6 +75,7 @@ font-weight: 400;
     width: 20%;
     margin: 20px;
     transition: transform 0.2s;
+    
 }
 .filmPoster{
     width: 100%;
@@ -89,9 +90,10 @@ font-weight: 400;
     font-size: larger;
 }
 .filmContainerInfo{
-    padding-left: 10px;
+    padding-top: 15px;
     width: 100%;
-    height: auto;
+    
+    min-height: 190px;
     background-color: #151515;
     padding-bottom: 5px;
     
@@ -99,6 +101,7 @@ font-weight: 400;
 .movieTimeContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
 }
