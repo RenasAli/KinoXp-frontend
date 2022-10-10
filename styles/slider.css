@@ -154,8 +154,8 @@ text-align: center;
   box-shadow: none;
   border-radius: 40px;
   font-size: 25px; 
-  width: 25%; 
-  height:auto;
+  width: 40%; 
+  height:60px;
 }
 .carousel_text button:hover{
   background-color: #5a0314;
