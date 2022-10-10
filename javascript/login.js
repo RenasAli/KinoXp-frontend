@@ -59,7 +59,7 @@ loginButton.addEventListener('click', (e) => {
         
     }
 }).catch(error => {
-    console.log(error)
+    
     testFailLogin.style.display = 'block'
     testFailLogin.innerHTML = "The username you've entered does not exist."
 })

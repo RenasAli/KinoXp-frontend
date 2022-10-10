@@ -63,11 +63,11 @@
         const carouselContent = document.querySelectorAll('.carousel_content')
 
     
-        console.log(carouselContentImg)
+   
         //Shuffle the posters
         const shuffledPosters = posters.sort((a, b) => 0.5 - Math.random());
-        console.log(shuffledPosters)
-        for (let i = 0; i < carouselContentImg.length; i++) {
+        
+        for (let i = 0; i < shuffledPosters.length; i++) {
           const img = document.createElement('img')
           img.src = shuffledPosters[i].poster
           carouselContentImg[i].appendChild(img)
