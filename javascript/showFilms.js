@@ -16,6 +16,7 @@ fetchDataByUrl("http://localhost:8080/filmShowingsByDate/" + date).then(data => 
     let movieNames = []
     //kører igennem data altså alle filmshowings
     for (let i = 0; i < data.length; i++) {
+        let movieTimeContainer;
         //tjekker om filmen allerede er på en filmshowing
         if(!movieNames.includes(data[i].film.title)){
             //gemmer i alle de forskellige lister. Poster er til slideren.
@@ -59,27 +60,28 @@ fetchDataByUrl("http://localhost:8080/filmShowingsByDate/" + date).then(data => 
 
             //her adder vi også navnet på filmen som class name
             //så vi kan bruge den i else
-            const movieTimeContainer = document.createElement('div')
+            movieTimeContainer = document.createElement('div')
             movieTimeContainer.classList.add('movieTimeContainer')
             movieTimeContainer.setAttribute('data-name', data[i].film.title)
             filmContainerInfo.appendChild(movieTimeContainer)
 
-            const startTime = document.createElement('p')
-
-        
-
-            startTime.innerHTML = data[i].time
-            movieTimeContainer.appendChild(startTime)
+            
 
 
         }else{
             //her tager vi fat i data-name og så adder vi tiden til den allerede eksisterende
-            const dataName = document.querySelector('[data-name="' + data[i].film.title + '"]')
+            movieTimeContainer = document.querySelector('[data-name="' + data[i].film.title + '"]')
+          
+
+        }     
             const startTime = document.createElement('p')
             startTime.innerHTML = data[i].time
-            dataName.appendChild(startTime)
+            movieTimeContainer.appendChild(startTime)   
 
-        }        
+            //her adder vi event for hvad der sker når man klikker på knappen :)
+            startTime.addEventListener('click', (e) => {
+                console.log('hej')
+            })
         
     }
   
