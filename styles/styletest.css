@@ -25,7 +25,7 @@ body{
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: flex-start;
-    margin-right: 30%;
+    padding-right: 30%;
 }
 .filmBookingContainer_infoText p {
     align-self: center;
@@ -121,7 +121,7 @@ body{
 }
 
 .col-sm-4{
-    padding-left: 100px;
+
 }
 
 .form-control{
