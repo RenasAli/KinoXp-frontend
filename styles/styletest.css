@@ -11,6 +11,7 @@ body{
     justify-content: space-around;
     background-color: #000000;
     color: white;
+    background: linear-gradient(30deg, rgba(0,0,0,1) 40%, rgba(143,0,0,1) 100%);
 }
 .filmBookingContainer_info img{
     height: 90%;
@@ -28,7 +29,10 @@ body{
 }
 .filmBookingContainer_infoText p {
     align-self: center;
+    font-size: 24px;
 }
+
+
 
 
 .filmBookingContainer_flex{
@@ -109,3 +113,17 @@ body{
     right: 20px;
     bottom: 20px;
   }
+
+
+/*TICKET COUNTER*/
+.input-group-prepend{
+
+}
+
+.col-sm-4{
+    padding-left: 100px;
+}
+
+.form-control{
+    text-align: center;
+}
