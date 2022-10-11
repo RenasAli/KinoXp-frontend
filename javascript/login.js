@@ -5,7 +5,13 @@ const loginButton = document.getElementById("loginButton")
 const navLogOut = document.getElementById("navLogOut")
 const navLogIn = document.getElementById("navLogIn")
 const createFilmShowing = document.getElementById("createFilmShowingModalButton")
+const navHome = document.getElementById('navHome')
 
+navHome.addEventListener('click', (e) => {
+    const specificFilm = document.querySelector('.filmBookingContainer')
+    specificFilm.style.display = 'none'
+    getAllFilmsByDate(formatDate(new Date()))
+})
 
 var userLogin = null
 
