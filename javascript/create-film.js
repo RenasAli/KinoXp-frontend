@@ -14,7 +14,7 @@ searchFilmButton.addEventListener('click', getInput);
 
 function getInput() {
 
-    console.log(searchFilmInput.value);
+   
     fetchDataByUrl(
         "http://www.omdbapi.com/?t=" 
         + searchFilmInput.value + 
@@ -49,7 +49,7 @@ function getInput() {
                 "actors": ${JSON.stringify(data.Actors)}
                 }`;
 
-                console.log(movieData)
+                
                 request.send(movieData);
                 
 

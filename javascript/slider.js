@@ -61,13 +61,13 @@
       setTimeout(() => {
         const carouselContentImg = document.querySelectorAll('.carousel_content_img')
         const carouselContent = document.querySelectorAll('.carousel_content')
-        const carouselContentShadow = document.querySelectorAll('.carousel_content_shadow')
+
     
-        console.log(carouselContentImg)
+   
         //Shuffle the posters
         const shuffledPosters = posters.sort((a, b) => 0.5 - Math.random());
-        console.log(shuffledPosters)
-        for (let i = 0; i < carouselContentImg.length; i++) {
+        
+        for (let i = 0; i < shuffledPosters.length; i++) {
           const img = document.createElement('img')
           img.src = shuffledPosters[i].poster
           carouselContentImg[i].appendChild(img)
@@ -82,6 +82,10 @@
           div.appendChild(button)
           carouselContent[i].appendChild(div)
           
+          /*
+          const shadowDiv = document.createElement('div')
+          div.classList.add('carousel_content_shadow')
+          carouselContent[i].appendChild(shadowDiv) */
         }
       },100)
       

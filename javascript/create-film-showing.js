@@ -17,7 +17,7 @@ createFilmShowingButton.addEventListener('click', addDataToCreateFilmContainer =
     
     const filmContainer = document.querySelector('.createFilmShowingContainer')
     fetchDataByUrl('http://localhost:8080/api/film/all').then(data =>{
-        console.log(data)
+        
         // for at tømme containeren inden vi adder alle elementerne
         filmContainer.innerHTML = ''
         for (let i = 0; i < data.length; i++) {
@@ -89,7 +89,7 @@ createFilmShowingConfirmButton.addEventListener('click', (e) => {
         "room": ${JSON.stringify(createFilmRoom.value)},
         "price": ${JSON.parse(createFilmTicketPrice.value)}
         }`;
-        console.log(movieShowingData)
+        
     
     
     request.send(movieShowingData);

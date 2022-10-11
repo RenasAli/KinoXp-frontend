@@ -2,7 +2,7 @@ body{
     background-color: #181A1B;
     /*background-color: #21221f;*/
 }
-
+/*
 .filmContainer{
     display: flex;
     flex-wrap: wrap;
@@ -35,7 +35,7 @@ body{
 
 .filmPoster{
     width: 100%;
-    /* ellers bliver nogle af posterne fucked */
+    
     max-height: 370px;
 }
 .filmContainerInfo p{
@@ -45,4 +45,94 @@ body{
 p{
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 font-weight: 400;
+}
+*/
+
+
+
+.buttonDateContainer{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0px 20px;
+    
+}
+.dateButton{
+    padding: 10px 20px;
+}
+
+.individualFilmContainer{
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 15%;
+    margin-right: 15%;
+        
+}
+.filmContainerCol{
+    width: 20%;
+    margin: 20px;
+    transition: transform 0.2s;
+    
+}
+.filmPoster{
+    width: 100%;
+    
+    max-height: 370px;
+}
+
+.movieTimeContainer p, .filmContainerInfo p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: larger;
+}
+.filmContainerInfo{
+    padding-top: 15px;
+    width: 100%;
+    
+    min-height: 190px;
+    background-color: #151515;
+    padding-bottom: 5px;
+    
+}
+.movieTimeContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.filmContainerInfo p {
+    text-align: center;
+}
+.movieTimeContainer p {
+    justify-self: center;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 10px;
+}
+.movieTimeContainer p:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e40808;
+    transition: transform 0.25s ease-out;
+  }
+.movieTimeContainer p:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.movieTimeContainer p:hover {
+   cursor: pointer;
+}
+.filmContainerCol:hover{    
+    transform: scale(1.05);
 }
