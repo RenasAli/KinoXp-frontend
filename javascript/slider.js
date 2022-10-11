@@ -87,6 +87,6 @@
           div.classList.add('carousel_content_shadow')
           carouselContent[i].appendChild(shadowDiv) */
         }
-      },100)
+      },500)
       
     }
