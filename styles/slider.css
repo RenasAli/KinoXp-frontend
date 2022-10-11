@@ -54,7 +54,7 @@ body{
   width: 10px;
   height: 10px;
   display: inline-block;
-  background: whitesmoke;
+  background: rgb(90, 89, 89);
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
