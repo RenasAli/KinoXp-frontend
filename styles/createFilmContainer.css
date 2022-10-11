@@ -1,0 +1,18 @@
+.createFilmContainer{
+    display: flex;
+    justify-content: center;
+    /*flex-direction: column;*/
+    align-items: center;
+  
+}
+.createFilmContainer input{
+    margin-right: 5px;
+}
+#movie-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#movie-container img:hover{
+    cursor: pointer;
+}
