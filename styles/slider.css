@@ -54,14 +54,14 @@ body{
   width: 10px;
   height: 10px;
   display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
+  background: whitesmoke;
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
 }
 
 .carousel__button--selected {
-  background: rgba(255, 255, 255, 0.5);
+  background: whitesmoke;
 }
 
 
@@ -133,7 +133,7 @@ body{
   /*
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
 font-family: 'Segoe UI', 'Arial';
-color: white;
+color: whitesmoke;
 /*border: 3px solid #f1f1f1;*/
 font-weight: bold;
 position: static;
