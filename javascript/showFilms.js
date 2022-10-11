@@ -86,7 +86,7 @@ fetchDataByUrl("http://localhost:8080/filmShowingsByDate/" + date).then(data => 
         
     }
   
-
+    initialisePosters()
 
     
 })

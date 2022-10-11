@@ -4,21 +4,17 @@
 
 
 function createBookingPage(data){
-    console.log(data)
-    const container = document.querySelector('.filmBookingContainer_info')
-    //container.replaceChildren()
+    
 
     console.log(data)
+    //hider forsiden og viser den enkelte film
     const frontPage = document.querySelector('.frontPage')
     frontPage.style.display = "none"
-
     const bookingPage = document.querySelector('.filmBookingContainer')
     bookingPage.style.display = "block"
 
-    
-    const filmBookingContainer_info = document.createElement('div')
-    filmBookingContainer_info.classList.add('filmBookingContainer_info')
-    bookingPage.appendChild(filmBookingContainer_info)
+    const filmBookingContainer_info = document.querySelector('.filmBookingContainer_info')
+    filmBookingContainer_info.replaceChildren()
 
     const img = document.createElement('img')
     img.src = data.film.poster

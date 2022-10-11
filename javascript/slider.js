@@ -54,11 +54,11 @@
     
 
   
-    initialisePosters()
+    
 
-
+//kaldt i showFilms så vi kan vente på at alle bliver loaded ind i filen
     function initialisePosters(){
-      setTimeout(() => {
+      
         const carouselContentImg = document.querySelectorAll('.carousel_content_img')
         const carouselContent = document.querySelectorAll('.carousel_content')
 
@@ -87,6 +87,6 @@
           div.classList.add('carousel_content_shadow')
           carouselContent[i].appendChild(shadowDiv) */
         }
-      },500)
+      
       
     }
