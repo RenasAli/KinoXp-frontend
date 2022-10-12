@@ -41,12 +41,14 @@ function createBookingPage(data){
 
     const description = document.createElement('p')
     description.setAttribute('class', 'film_description')
-    description.innerHTML = data.film.description
+    description.innerHTML = 'Description: ' + data.film.description
     filmBookingContainer_infoText.appendChild(description)
     
-    
+    const filler2 = document.createElement('p')
+    filmBookingContainer_infoText.appendChild(filler2)
+
     const date = document.createElement('p')
-    date.innerHTML = data.date
+    date.innerHTML = 'Date: ' + data.date
     filmBookingContainer_infoText.appendChild(date)
 
     /*
@@ -54,28 +56,26 @@ function createBookingPage(data){
     description.innerHTML = data.film.room
     filmBookingContainer_infoText.appendChild(room)
     */
-    
+    console.log(data)
     const genre = document.createElement('p')
-    genre.innerHTML = data.film.genre
+    genre.innerHTML = 'Genre: ' + data.film.genre
     filmBookingContainer_infoText.appendChild(genre)
 
     const actor = document.createElement('p')
-
-    actor.innerHTML = data.film.actors
-
+    actor.innerHTML = 'Actors: ' + data.film.actors
     filmBookingContainer_infoText.appendChild(actor)
     
     const rated = document.createElement('p')
-    rated.innerHTML = data.film.rated
+    rated.innerHTML = 'Rating: ' + data.film.rated
     filmBookingContainer_infoText.appendChild(rated)
     
     const length = document.createElement('p')
-    length.innerHTML = data.film.lengthInMinutes
+    length.innerHTML = 'Length: ' + data.film.lengthInMinutes
     filmBookingContainer_infoText.appendChild(length)
     
     
     const time = document.createElement('p')
-    time.innerHTML = data.time
+    time.innerHTML = 'The ' + data.room.name + ' room at ' +  data.time
     filmBookingContainer_infoText.appendChild(time)
 
 
@@ -98,11 +98,15 @@ function getSeats(data){
         }
     }
     
-   
+   const seatsContainer = document.querySelector('.seatsContainer')
+
+   //reseter lige containeren
+   seatsContainer.innerHTML = ''
+
     for (let i = 0; i < room.rows.length; i++) {
         const row = document.createElement('div')
         row.classList.add('row')
-        bookingContainer.appendChild(row)
+        seatsContainer.appendChild(row)
 
         for (let j = 0; j < room.rows[i].seats.length; j++) {
            
@@ -135,8 +139,8 @@ function getSeats(data){
 
 
 
-    const showcase = document.createElement('ul')
-    showcase.classList.add('showcase')
+    const showcase = document.querySelector('.showcase')
+    
     showcase.innerHTML = `
      <li>
             <div class="seat"></div>
@@ -152,7 +156,13 @@ function getSeats(data){
           </li>
     
           `
-          bookingContainer.appendChild(showcase)
+
+
+
+          //reseter lige listerne
+          chosenSeats = []
+          seatsList = []
+          
 }
 
 

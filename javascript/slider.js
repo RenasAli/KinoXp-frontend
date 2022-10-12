@@ -55,10 +55,19 @@
 
   
     
-
+    let executed = false;
 //kaldt i showFilms så vi kan vente på at alle bliver loaded ind i filen
     function initialisePosters(){
       
+
+      //sørger for at funktion kun bliver kaldt en gang
+      
+      if(executed){
+        return
+      }
+      executed = true
+
+
         const carouselContentImg = document.querySelectorAll('.carousel_content_img')
         const carouselContent = document.querySelectorAll('.carousel_content')
 

@@ -133,8 +133,8 @@ body{
   }
 
   .seat.selected:hover{
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.579);
+    cursor: unset;
+    background-color: #fff;
   }
   
   .seat.occupied {
