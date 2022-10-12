@@ -70,6 +70,6 @@ function createBookingPage(data){
     time.innerHTML = data.time
     filmBookingContainer_infoText.appendChild(time)
     
-
-    
 }
+
+
