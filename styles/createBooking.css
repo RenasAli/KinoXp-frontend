@@ -48,6 +48,14 @@ body{
   color: rgb(187, 187, 187);
 }
 
+.filmBookingContainer_infoText .film_info_text_titles{
+  color: rgb(187, 187, 187);
+}
+.filmBookingContainer_infoText .film_info_text_titles2{
+  color: rgb(187, 187, 187);
+  font-size: 18px;
+}
+
 .filmBookingContainer_flex{
     display: flex;
     flex-direction: row;
