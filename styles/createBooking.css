@@ -171,5 +171,5 @@ body{
     cursor: pointer;
     background-color: #dc3545;
     color: black;
-    border: #dc3545;
+    border: 2px solid #dc3545;
   }
