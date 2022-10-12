@@ -75,7 +75,7 @@ createFilmShowingConfirmButton.addEventListener('click', (e) => {
     const createFilmTicketPrice = document.getElementById('createFilmTicketPrice')
 
     let request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:8080/addFilmShowing/" + movieData.id + "/room/" + createFilmRoom.value)
+    request.open("POST", baseURL + "addFilmShowing/" + movieData.id + "/room/" + createFilmRoom.value)
 
     request.setRequestHeader("Accept", "application/json");
 

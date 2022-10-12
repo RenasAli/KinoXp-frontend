@@ -1,11 +1,12 @@
 
-const baseURL = 'https://gruppecicd.azurewebsites.net/'
 
 
+
+let filmshowingId = null
 
 function createBookingPage(data){
     
-
+    filmshowingId = data.filmShowingId;
     
     //hider forsiden og viser den enkelte film
     const frontPage = document.querySelector('.frontPage')
@@ -31,10 +32,15 @@ function createBookingPage(data){
 
 
     const title = document.createElement('p')
+    title.setAttribute('class', 'film_title')
     title.innerHTML = data.film.title
     filmBookingContainer_infoText.appendChild(title)
 
+    const filler = document.createElement('p')
+    filmBookingContainer_infoText.appendChild(filler)
+
     const description = document.createElement('p')
+    description.setAttribute('class', 'film_description')
     description.innerHTML = data.film.description
     filmBookingContainer_infoText.appendChild(description)
     
@@ -54,7 +60,9 @@ function createBookingPage(data){
     filmBookingContainer_infoText.appendChild(genre)
 
     const actor = document.createElement('p')
+
     actor.innerHTML = data.film.actors
+
     filmBookingContainer_infoText.appendChild(actor)
     
     const rated = document.createElement('p')
@@ -75,14 +83,14 @@ function createBookingPage(data){
 
     
 }
-
-
+let chosenSeats = []
+let seatsList = []
 function getSeats(data){
     let room = data.room
     const bookingContainer = document.querySelector('.filmBookingContainer_booking')
-    console.log(data)
+    
     fetchDataByUrl(baseURL + 'api/booking/byFilmShowingId/' + data.filmShowingId).then(bookedSeats => {
-        let seatsList = []
+        
 
         for (let j = 0; j < bookedSeats.length; j++) {
         for (let i = 0; i < bookedSeats[j].seats.length; i++) {
@@ -90,7 +98,7 @@ function getSeats(data){
         }
     }
     
-    let chosenSeats = []
+   
     for (let i = 0; i < room.rows.length; i++) {
         const row = document.createElement('div')
         row.classList.add('row')
@@ -112,6 +120,8 @@ function getSeats(data){
                         chosenSeats.push(room.rows[i].seats[j].id)
                         seat.classList.add('selected')
                     }
+
+
                 })
             }
             
@@ -151,6 +161,114 @@ function getSeats(data){
 
 
 function postCustomerAndBooking(){
+    const inputEmailCustomer = document.getElementById('inputEmailCustomer')
+    const inputNameCustomer = document.getElementById('inputNameCustomer')
+    if(inputEmailCustomer.value === "" || inputNameCustomer.value === ""){
+        alert("You have not entered email or/and name")
+        return
+    }
+    if(chosenSeats.length === 0){
+        alert("You have not reserved anything")
+        return
+    }
+    
+    fetchDataByUrl(baseURL + 'api/customer/' + inputEmailCustomer.value).then(data => {
+        //hvis customer findes
+        addBooking(inputEmailCustomer.value)
+
+        
+
+
+
+
+
+
+
+
+
+    }).catch(error => {
+        //hvis customer ikke finder
+        addCustomer(inputEmailCustomer.value,inputNameCustomer.value)
+        
+        setTimeout(() => {
+            addBooking(inputEmailCustomer.value)
+        },3000)
+
+
+        refreshFrontPage()
+
+    })
+
+    
+    
 
 }
-git
+
+
+
+const reserveBookingButton = document.getElementById('reserveBookingButton')
+
+reserveBookingButton.addEventListener('click', postCustomerAndBooking)
+
+
+
+
+function addCustomer(email, firstname){
+
+    let request = new XMLHttpRequest();
+    request.open("POST", baseURL + "api/customer/add")
+
+    request.setRequestHeader("Accept", "application/json");
+
+    // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    
+      
+    
+    let customerData = `{
+        "ferstName": ${JSON.stringify(firstname)},
+        "email": ${JSON.stringify(email)}
+        }`;
+        
+    
+    
+    request.send(customerData);
+        
+
+    
+    
+}
+
+
+
+
+function addBooking(email){
+
+    let request = new XMLHttpRequest();
+
+    let chosenSeatsString = chosenSeats[0]
+    for (let i = 1; i < chosenSeats.length; i++) {
+        chosenSeatsString = chosenSeatsString + ',' + chosenSeats[i]
+                        
+    }
+                   
+
+    request.open("POST", baseURL + "api/booking/add/" + filmshowingId + "/seats/" + chosenSeatsString + "/customer/" + email)
+
+    request.setRequestHeader("Accept", "application/json");
+
+    // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    
+      
+    
+    let bookingData = `{
+        "time": "12.00"
+        }`;
+        
+    
+    
+    request.send(bookingData);
+        
+
+}

@@ -5,6 +5,7 @@ body{
 .filmBookingContainer{
   background-color: #000000;
   background: linear-gradient(20deg, rgba(0,0,0,1) 55%, rgba(143,0,0,1) 100%);
+  
 }
 
 
@@ -15,7 +16,6 @@ body{
     justify-content: space-between;
 
     color: white;
-   border-bottom: solid black;
 }
 .filmBookingContainer_info img{
     height: 90%;
@@ -38,8 +38,15 @@ body{
     font-size: 24px;
 }
 
+.filmBookingContainer_infoText .film_title{
+  font-size: 50px;
+  font-weight: 500;
+}
 
-
+.filmBookingContainer_infoText .film_description{
+  font-size: 18px;
+  color: rgb(187, 187, 187);
+}
 
 .filmBookingContainer_flex{
     display: flex;
@@ -58,15 +65,24 @@ body{
 }
 
 
+.col-sm-4 .col-sm-offset-4{
+  width: 10%;
+}
 
+/*Email adress + Full name*/
+.filmBookingContainer_form .form-group{ 
+ 
+}
 
-
+.filmBookingContainer_form .col-sm-5{
+  margin: 0 auto;
+}
 
 
 
 
 .filmBookingContainer_booking{
-    width: 50%;
+    width: 40%;
     height: 55vh;
 
     display: flex;
@@ -75,6 +91,8 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+
 .showcase{
     display: flex;
     flex-direction: row;
@@ -90,8 +108,8 @@ body{
 
 .seat {
     background-color: #444451;
-    height: 12px;
-    width: 15px;
+    height: 16px;/*height= width*0.8, så det ikke ser lort ud*/
+    width: 20px; 
     margin: 3px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -138,16 +156,3 @@ body{
     bottom: 20px;
   }
 
-
-/*TICKET COUNTER*/
-.input-group-prepend{
-
-}
-
-.col-sm-4{
-
-}
-
-.form-control{
-
-}
