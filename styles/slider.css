@@ -103,7 +103,7 @@ body{
 
 }
 .carousel_content img{
-  height: 500px;
+  max-height: 500px;
   width: 100%;
  object-fit: cover;
  object-position: 20% 20%;
@@ -136,8 +136,9 @@ left: 50%;*/
 transform: translate(-10%, -100%);
 /*Placerer den foran billedet*/
 z-index: 3;
-width: 40%;
+width: 30%;
 padding: 20px;
+padding-left: 5%;
 text-align: center;
 }
 .carousel_text button{

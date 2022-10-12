@@ -41,7 +41,7 @@ function createBookingPage(data){
 
     const description = document.createElement('p')
     description.setAttribute('class', 'film_description')
-    description.innerHTML = 'Description: ' + data.film.description
+    description.innerHTML = data.film.description
     filmBookingContainer_infoText.appendChild(description)
     
     const filler2 = document.createElement('p')
@@ -60,11 +60,11 @@ function createBookingPage(data){
     const actor = document.createElement('p')
     actor.innerHTML = '<span class= "film_info_text_titles"> Cast: </span>' + data.film.actors
     filmBookingContainer_infoText.appendChild(actor)
-
+    
     const genre = document.createElement('p')
     genre.innerHTML = '<span class= "film_info_text_titles"> Genre: </span>' + data.film.genre
     filmBookingContainer_infoText.appendChild(genre)
-    
+
     const rated = document.createElement('p')
     rated.innerHTML = '<span class= "film_info_text_titles"> Rated: </span>' + data.film.rated
     filmBookingContainer_infoText.appendChild(rated)
@@ -98,15 +98,11 @@ function getSeats(data){
         }
     }
     
-   const seatsContainer = document.querySelector('.seatsContainer')
-
-   //reseter lige containeren
-   seatsContainer.innerHTML = ''
-
+   
     for (let i = 0; i < room.rows.length; i++) {
         const row = document.createElement('div')
         row.classList.add('row')
-        seatsContainer.appendChild(row)
+        bookingContainer.appendChild(row)
 
         for (let j = 0; j < room.rows[i].seats.length; j++) {
            
@@ -139,8 +135,8 @@ function getSeats(data){
 
 
 
-    const showcase = document.querySelector('.showcase')
-    
+    const showcase = document.createElement('ul')
+    showcase.classList.add('showcase')
     showcase.innerHTML = `
      <li>
             <div class="seat"></div>
@@ -156,13 +152,7 @@ function getSeats(data){
           </li>
     
           `
-
-
-
-          //reseter lige listerne
-          chosenSeats = []
-          seatsList = []
-          
+          bookingContainer.appendChild(showcase)
 }
 
 
