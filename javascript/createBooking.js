@@ -44,9 +44,11 @@ function createBookingPage(data){
     description.innerHTML = data.film.description
     filmBookingContainer_infoText.appendChild(description)
     
+    const filler2 = document.createElement('p')
+    filmBookingContainer_infoText.appendChild(filler2)
     
     const date = document.createElement('p')
-    date.innerHTML = data.date
+    date.innerHTML = '<span class= "film_info_text_titles"> Date: </span>' + data.date
     filmBookingContainer_infoText.appendChild(date)
 
     /*
@@ -54,28 +56,26 @@ function createBookingPage(data){
     description.innerHTML = data.film.room
     filmBookingContainer_infoText.appendChild(room)
     */
-    
-    const genre = document.createElement('p')
-    genre.innerHTML = data.film.genre
-    filmBookingContainer_infoText.appendChild(genre)
 
     const actor = document.createElement('p')
-
-    actor.innerHTML = data.film.actors
-
+    actor.innerHTML = '<span class= "film_info_text_titles"> Cast: </span>' + data.film.actors
     filmBookingContainer_infoText.appendChild(actor)
+
+    const genre = document.createElement('p')
+    genre.innerHTML = '<span class= "film_info_text_titles"> Genre: </span>' + data.film.genre
+    filmBookingContainer_infoText.appendChild(genre)
     
     const rated = document.createElement('p')
-    rated.innerHTML = data.film.rated
+    rated.innerHTML = '<span class= "film_info_text_titles"> Rated: </span>' + data.film.rated
     filmBookingContainer_infoText.appendChild(rated)
     
     const length = document.createElement('p')
-    length.innerHTML = data.film.lengthInMinutes
+    length.innerHTML = '<span class= "film_info_text_titles"> Length: </span>' + data.film.lengthInMinutes + '<span class= "film_info_text_titles2"> min</span>'
     filmBookingContainer_infoText.appendChild(length)
     
     
     const time = document.createElement('p')
-    time.innerHTML = data.time
+    time.innerHTML = '<span class= "film_info_text_titles"> Start Time: </span>' + data.time
     filmBookingContainer_infoText.appendChild(time)
 
 
