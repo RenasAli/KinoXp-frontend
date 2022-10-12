@@ -45,6 +45,9 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+.seat:hover{
+  cursor: pointer;
+}
 
 .seat.selected {
   background-color: #c0c0c0;

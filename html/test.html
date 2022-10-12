@@ -50,10 +50,11 @@
 
   <div class="filmBookingContainer_flex">
     <div class="filmBookingContainer_form">
-      
-    <h2>SELECT TICKETS</h2>
-    <h6>Select the number and type of tickets you wish to buy.<br>Please note seats are reserved on a best available basis.
-    </h6>
+
+      <h2>SELECT TICKETS</h2>
+      <h6>Select the number and type of tickets you wish to buy.<br>Please note seats are reserved on a best available
+        basis.
+      </h6>
 
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
@@ -75,17 +76,20 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Enter email">
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputEmail1">Full name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Enter full name">
-      </div>
+      <form>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-2">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+      </form>
 
 
 

@@ -21,7 +21,7 @@ loginButton.addEventListener('click', (e) => {
     const testFailLogin = document.getElementById('loginFail')
     
 
-    fetchDataByUrl("http://localhost:8080/get/user/" + usernameForm.value).then(data => {
+    fetchDataByUrl(`${baseURL}/get/user/` + usernameForm.value).then(data => {
     
     
 

@@ -1,12 +1,12 @@
 
-
+const baseURL = 'https://gruppecicd.azurewebsites.net/'
 
 
 
 function createBookingPage(data){
     
 
-    console.log(data)
+    
     //hider forsiden og viser den enkelte film
     const frontPage = document.querySelector('.frontPage')
     frontPage.style.display = "none"
@@ -69,7 +69,88 @@ function createBookingPage(data){
     const time = document.createElement('p')
     time.innerHTML = data.time
     filmBookingContainer_infoText.appendChild(time)
+
+
+    getSeats(data)
+
     
 }
 
 
+function getSeats(data){
+    let room = data.room
+    const bookingContainer = document.querySelector('.filmBookingContainer_booking')
+    console.log(data)
+    fetchDataByUrl(baseURL + 'api/booking/byFilmShowingId/' + data.filmShowingId).then(bookedSeats => {
+        let seatsList = []
+
+        for (let j = 0; j < bookedSeats.length; j++) {
+        for (let i = 0; i < bookedSeats[j].seats.length; i++) {
+            seatsList.push(bookedSeats[j].seats[i].id)
+        }
+    }
+    
+    let chosenSeats = []
+    for (let i = 0; i < room.rows.length; i++) {
+        const row = document.createElement('div')
+        row.classList.add('row')
+        bookingContainer.appendChild(row)
+
+        for (let j = 0; j < room.rows[i].seats.length; j++) {
+           
+            const seat = document.createElement('div')
+            seat.classList.add('seat')
+            if(seatsList.includes(room.rows[i].seats[j].id)){
+                seat.classList.add('occupied')
+            }else{
+                seat.addEventListener('click', (e) => {
+                    
+                    if(seat.classList.contains('selected')){
+                        seat.classList.remove('selected')
+                        chosenSeats.splice(chosenSeats.indexOf(room.rows[i].seats[j].id,1))
+                    }else{
+                        chosenSeats.push(room.rows[i].seats[j].id)
+                        seat.classList.add('selected')
+                    }
+                })
+            }
+            
+            row.appendChild(seat)
+            
+           
+        }
+        
+    }
+})
+
+
+
+    const showcase = document.createElement('ul')
+    showcase.classList.add('showcase')
+    showcase.innerHTML = `
+     <li>
+            <div class="seat"></div>
+            <small>N/A</small>
+          </li>
+          <li>
+            <div class="seat selected"></div>
+            <small>Selected</small>
+          </li>
+          <li>
+            <div class="seat occupied"></div>
+            <small>Occupied</small>
+          </li>
+    
+          `
+          bookingContainer.appendChild(showcase)
+}
+
+
+
+
+
+
+function postCustomerAndBooking(){
+
+}
+git

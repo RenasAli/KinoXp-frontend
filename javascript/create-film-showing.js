@@ -16,7 +16,7 @@ function addEventListenerToCreateFilmShowing(){
 createFilmShowingButton.addEventListener('click', addDataToCreateFilmContainer =  (e) => {
     
     const filmContainer = document.querySelector('.createFilmShowingContainer')
-    fetchDataByUrl('http://localhost:8080/api/film/all').then(data =>{
+    fetchDataByUrl(`${baseURL}/api/film/all`).then(data =>{
         
         // for at tømme containeren inden vi adder alle elementerne
         filmContainer.innerHTML = ''
