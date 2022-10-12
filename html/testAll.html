@@ -20,172 +20,49 @@
 
 <body>
 
-  <nav style="height: 10vh;" class="navbar navbar-dark bg-dark justify-content-around">
-    <img id="navLogo" src="../pictures/Logo.png" alt="asdfsd" style="width: 100px">
-    <!--<a class="navbar-brand">Navbar</a> -->
-    <form class="form-inline" id="navBarForm">
-      <button type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" id="navHome">Home</button>
-      <button type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal" data-target="#login"
-        id="navLogIn">Log in</button>
-      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" id="navLogOut">Log
-        out</button>
-      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal"
-        data-target="#exampleModal" id="modal2">Create film</button>
-      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal"
-        data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
-    </form>
-  </nav>
+  <div class="all-containers">
 
+    <div>
 
-  <!-- Modal  for createFilmShwoing-->
-  <div class="modal fade" id="createFilmShowingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Create Filmshowing</h5>
-          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div id="createFilmShowingContainer" class="createFilmShowingContainer"></div>
-          <form>
-            <div class="form-group">
-              <label for="createFilmName">Name of movie</label>
-              <input style="color: black;" type="text" class="form-control" id="createFilmName" placeholder="" readonly>
-            </div>
-            <!--  
-              <div class="form-group">
-                <label for="createFilmLength">Enter length</label>
-                <input type="text" class="form-control" id="createFilmLength" placeholder="e.g 160">
-              </div>
-              -->
-            <div class="form-group">
-              <label for="createFilmRoom">Enter room</label>
-              <input type="text" class="form-control" id="createFilmRoom" placeholder="e.g 1 or 2">
-            </div>
-            <div class="form-group">
-              <label for="createFilmTicketPrice">Enter bio ticketprice</label>
-              <input type="text" class="form-control" id="createFilmTicketPrice" placeholder="e.g 80">
-            </div>
-            <label for="startDateLabel">Start date:</label>
-            <div class="form-group">
-              <input class="form-control" type="date" id="createFilmStartDate" value="2022-10-01" min="2022-07-10"
-                max="2023-12-31">
-            </div>
+      <nav style="height: 10vh;" class="navbar navbar-dark bg-dark justify-content-around">
+        <img id="navLogo" src="../pictures/Logo.png" alt="asdfsd" style="width: 100px">
+        <!--<a class="navbar-brand">Navbar</a> -->
+        <form class="form-inline" id="navBarForm">
+          <button type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" id="navHome">Home</button>
+          <button type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal" data-target="#login"
+            id="navLogIn">Log in</button>
+          <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" id="navLogOut">Log
+            out</button>
+          <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal"
+            data-target="#exampleModal" id="modal2">Create film</button>
+          <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal"
+            data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
+        </form>
 
-            <label for="startTimeLabel">Time for movie start</label>
-            <div class="form-group">
-              <input class="form-control" type="time" id="createFilmStartTime" required>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"
-            id="createFilmShowingConfirmButton">Add</button>
-        </div>
-      </div>
+      </nav>
+
     </div>
-  </div>
 
+    <!-- 1 -->
+    <div>
 
-  <!-- Modal create film -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabelll">Create Film</h1>
-          <button type="button" class="btn-close border-0" data-bs-dismiss="modal" data-dismiss="modal"
-            aria-label="Close">x</button>
-        </div>
-        <div class="modal-body">
-          <div class="createFilmContainer">
-            <input type="text" id="search-film-input" placeholder="Search here...">
-            <div>
-              <button type="button" class="btn btn-secondary" id="search-film-button">Search</button>
-            </div>
-          </div>
-          <div id="movie-container">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
 
+    <!-- 2 -->
+    <div>
 
-  <!-- Modal 2 for sign in -->
-  <div class="modal fade" id="login" type="submit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
-          <h3><button type="button" class="btn-close" aria-label="Close" data-dismiss="modal">
-              <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body" id="modalBody">
-          <div class="form-outline mb-4">
-            <input type="text" id="usernameForm" class="form-control" />
-            <label class="form-label" for="usernameForm">Username</label>
-          </div>
-          <div class="form-outline mb-4">
-            <input type="password" id="passwordForm" class="form-control" />
-            <label class="form-label" for="passwordForm">Password</label>
-          </div>
-          <p style="display: none; color: red; font-size: 12px;" id="loginFail"> asdfasdf</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark ml-1 mr-1 bold" id="loginButton">Sign in</button>
-        </div>
-      </div>
+<div></div>
+<div></div>
+<div></div>
+
     </div>
-  </div>
 
+    <!-- 3 -->
+    <div>
+      
+      <div></div>
+      <div></div>
 
-
-
-
-
-
-
-  <div class="frontPage">
-
-    <!--slider-->
-    <div class="carousel">
-      <div class="carousel__item">
-        <div class="carousel_content">
-          <div class="carousel_content_img">
-          </div>
-          <!--Banner shadow-->
-          <div class="carousel_content_shadow"></div>
-          <!--BannerText
-  <div class="carousel_text"><h1>Spider-Man™: Far From Home</h1>
-    <button>KØB BILLET</button>
-  </div>-->
-        </div>
-      </div>
-
-      <div class="carousel__item">
-        <div class="carousel_content">
-          <div class="carousel_content_img"></div>
-        </div>
-      </div>
-      <div class="carousel__item">
-        <div class="carousel_content">
-          <div class="carousel_content_img"></div>
-        </div>
-      </div>
-      <div class="carousel__nav">
-        <span class="carousel__button"></span>
-        <span class="carousel__button"></span>
-        <span class="carousel__button"></span>
-      </div>
     </div>
 
 
@@ -193,129 +70,9 @@
 
 
 
-    <div class="moviecontainer">
 
-      <div class="buttonDateContainer">
-        <button class="dateButton btn btn-outline-danger">10-10</button>
-        <button class="dateButton btn btn-outline-danger">10-11</button>
-        <button class="dateButton btn btn-outline-danger">10-12</button>
-        <button class="dateButton btn btn-outline-danger">10-13</button>
-
-
-      </div>
-
-
-      <div class="individualFilmContainer"></div>
-
-    </div>
 
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="filmBookingContainer" style="display: none;">
-
-    <div class="filmBookingContainer_info"></div>
-
-
-
-
-
-    <div class="filmBookingContainer_flex">
-
-
-
-      <div class="filmBookingContainer_form">
-        <h2>SELECT TICKETS</h2>
-        <h6>Select the number and type of tickets you wish to buy.<br>Please note seats are reserved on a best available
-          basis.
-        </h6>
-
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-          integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-        <!-- Container Div-->
-          <div class="container mt-5">
-          <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4 col-sm-offset-4">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <button class="btn btn-dark btn-sm" id="minus-btn"><i class="fa fa-minus"></i></button>
-                </div>
-                <input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1">
-                <div class="input-group-prepend">
-                  <button class="btn btn-dark btn-sm" id="plus-btn"><i class="fa fa-plus"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4"></div>
-          </div>
-            <!-- Reservation Details -->
-          <div class="col-sm-5">
-
-          <div class="form-group" >
-            <label for="inputEmailCustomer">Email address</label>
-            <input type="email" class="form-control"  id="inputEmailCustomer" aria-describedby="emailHelp"
-              placeholder="Enter email">
-          </div>
-
-          <div class="form-group">
-            <label for="inputNameCustomer" >Full name</label>
-            <input type="text" class="form-control " id="inputNameCustomer" aria-describedby="emailHelp"
-              placeholder="Enter full name">
-          </div>
-        </div>
-
-
-
-
-
-
-        </div>
-      </div>
-
-
-      <div class="filmBookingContainer_booking">
-        <div class="screen"></div>
-  
-        <button type="button" class="btn btn-light reserveButton" id="reserveBookingButton">Reserve</button>
-      </div>
-
-      </div>
-
-
-
-
-    </div>
-
-  </div>
-
-
-
 
 
 
