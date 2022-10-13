@@ -87,21 +87,14 @@ body{
   margin: 0 auto;
 }
 
-
-
-
-.filmBookingContainer_booking{
+.filmBookingContainer_booking{  
     width: 40%;
     height: 55vh;
-
     display: flex;
     flex-direction: column;
-    color: white;
+    color: white; /* Hvad gør den her?*/
     align-items: center;
-    justify-content: center;
 }
-
-
 .showcase{
     display: flex;
     flex-direction: row;
@@ -160,7 +153,6 @@ body{
   }
 
   .reserveButton{
-    position: relative;
     top: 50%;
     left: 50%; 
     color:  rgb(143, 0, 0);;
