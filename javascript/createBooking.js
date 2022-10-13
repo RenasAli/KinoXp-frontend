@@ -98,11 +98,16 @@ function getSeats(data){
         }
     }
     
-   
+    const seatsContainer = document.querySelector('.seatsContainer')
+
+    //reseter lige containeren
+    seatsContainer.innerHTML = ''
+
+    
     for (let i = 0; i < room.rows.length; i++) {
         const row = document.createElement('div')
         row.classList.add('row')
-        bookingContainer.appendChild(row)
+        seatsContainer.appendChild(row)
 
         for (let j = 0; j < room.rows[i].seats.length; j++) {
            
@@ -135,8 +140,8 @@ function getSeats(data){
 
 
 
-    const showcase = document.createElement('ul')
-    showcase.classList.add('showcase')
+const showcase = document.querySelector('.showcase')
+
     showcase.innerHTML = `
      <li>
             <div class="seat"></div>
@@ -152,7 +157,10 @@ function getSeats(data){
           </li>
     
           `
-          bookingContainer.appendChild(showcase)
+
+                 //reseter lige listerne
+                 chosenSeats = []
+                 seatsList = []
 }
 
 
@@ -194,12 +202,9 @@ function postCustomerAndBooking(){
             addBooking(inputEmailCustomer.value)
         },3000)
 
-
-        refreshFrontPage()
-
     })
 
-    
+    refreshFrontPage()
     
 
 }

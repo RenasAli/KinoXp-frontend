@@ -5,7 +5,6 @@ const loginButton = document.getElementById("loginButton")
 const navLogOut = document.getElementById("navLogOut")
 const navLogIn = document.getElementById("navLogIn")
 const createFilmShowing = document.getElementById("createFilmShowingModalButton")
-const navHome = document.getElementById('navHome')
 
 
 
@@ -18,7 +17,6 @@ loginButton.addEventListener('click', (e) => {
     
 
     fetchDataByUrl(`${baseURL}/get/user/` + usernameForm.value).then(data => {
-    
     
 
     //man skal lige nu klikke 2 gange
