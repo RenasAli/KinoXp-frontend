@@ -76,7 +76,7 @@
         //Shuffle the posters
         const shuffledPosters = posters.sort((a, b) => 0.5 - Math.random());
         
-        for (let i = 0; i < shuffledPosters.length; i++) {
+        for (let i = 0; i < carouselContent.length; i++) {
           const img = document.createElement('img')
           img.src = shuffledPosters[i].poster
           carouselContentImg[i].appendChild(img)
