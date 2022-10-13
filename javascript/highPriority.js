@@ -1,5 +1,6 @@
 var baseURL = 'https://gruppecicd.azurewebsites.net/'
-
+var userLogin = null
+var isAdmin = false
 const navHome = document.getElementById('navHome')
 
 navHome.addEventListener('click', refreshFrontPage)

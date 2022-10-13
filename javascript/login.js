@@ -8,7 +8,7 @@ const createFilmShowing = document.getElementById("createFilmShowingModalButton"
 
 
 
-var userLogin = null
+
 
 
 loginButton.addEventListener('click', (e) => {
@@ -27,7 +27,7 @@ loginButton.addEventListener('click', (e) => {
         userLogin = data
         navLogIn.style.display = 'none'
         navLogOut.style.display = 'block'
-
+        isAdmin = true
         loginButton.setAttribute("data-bs-dismiss", "modal")
         loginButton.setAttribute("data-dismiss", "modal")
         loginButton.setAttribute("aria-label", "Close")

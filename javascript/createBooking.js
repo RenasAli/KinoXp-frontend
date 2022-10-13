@@ -1,11 +1,12 @@
 
 
 
-
 let filmshowingId = null
 
 function createBookingPage(data){
     
+
+
     filmshowingId = data.filmShowingId;
     
     //hider forsiden og viser den enkelte film
@@ -36,8 +37,64 @@ function createBookingPage(data){
     title.innerHTML = data.film.title
     filmBookingContainer_infoText.appendChild(title)
 
+    /*
     const filler = document.createElement('p')
     filmBookingContainer_infoText.appendChild(filler)
+    */
+    const updateFilmshowingButton = document.createElement('button')
+    updateFilmshowingButton.innerHTML = 'Update filmshowing'
+    updateFilmshowingButton.setAttribute('data-toggle','modal')
+     updateFilmshowingButton.setAttribute('data-target','#showUpdateFilmshowingModal')
+
+
+    updateFilmshowingButton.addEventListener('click', () => {
+      document.getElementById('inputFilmShowingPrice').value = data.price
+      document.getElementById('inputFilmShowingDate').value = data.date
+      document.getElementById('inputFilmShowingTime').value = data.time
+
+   })
+
+
+    const submit = document.getElementById('submitUpdateFilmshowing')
+
+    const filler3 = document.createElement('p')
+    filmBookingContainer_infoText.appendChild(filler3)
+
+
+    if(isAdmin === false){
+        updateFilmshowingButton.style.display = 'none'
+        filler3.style.display = 'none'
+        
+    }else{
+        //const filler = document.createElement('p')
+        //filmBookingContainer_infoText.appendChild(filler)
+    }
+
+
+
+        submit.addEventListener('click', () => {
+            updateFilmShowing(data)    
+
+        })
+
+        
+     
+     
+
+
+
+    filmBookingContainer_infoText.appendChild(updateFilmshowingButton)
+  
+
+    const filmBookingContainer_admin = document.querySelector('.filmBookingContainer_admin')
+    filmBookingContainer_admin.display ="block"
+
+
+    const filler1 = document.createElement('p')
+    filmBookingContainer_infoText.appendChild(filler1)
+
+
+
 
     const description = document.createElement('p')
     description.setAttribute('class', 'film_description')
@@ -50,6 +107,9 @@ function createBookingPage(data){
     const date = document.createElement('p')
     date.innerHTML = '<span class= "film_info_text_titles"> Date: </span>' + data.date
     filmBookingContainer_infoText.appendChild(date)
+
+
+  
 
     /*
     const room = document.createElement('p')
@@ -78,11 +138,41 @@ function createBookingPage(data){
     time.innerHTML = '<span class= "film_info_text_titles"> Start Time: </span>' + data.time
     filmBookingContainer_infoText.appendChild(time)
 
+    const price = document.createElement('p')
+    time.innerHTML = '<span class= "film_info_text_titles"> Price: </span>' + data.price + '<span class= "film_info_text_titles2">DKK</span>'
+    filmBookingContainer_infoText.appendChild(price)
 
     getSeats(data)
 
     
 }
+
+
+
+
+function updateFilmShowing (filmShowing) {
+    console.log(filmShowing)
+    let filmShowingPriceValue =  document.getElementById('inputFilmShowingPrice').value
+    let dateValue = document.getElementById('inputFilmShowingDate').value
+    let filmShowingTimeValue = document.getElementById('inputFilmShowingTime').value
+    console.log(baseURL + 'updateFilmShowing/' + filmShowing.filmShowingId + '/film/' + filmShowing.film.id + '/room/' + filmShowing.room.id + '?price=' + filmShowingPriceValue + '&date=' + dateValue + '&time=' + filmShowingTimeValue)
+    var patchRequest = new XMLHttpRequest();
+    patchRequest.open('PATCH', baseURL + 'updateFilmShowing/' + filmShowing.filmShowingId + '/film/' + filmShowing.film.id + '/room/' + filmShowing.room.id + '?price=' + filmShowingPriceValue + '&date=' + dateValue + '&time=' + filmShowingTimeValue);
+    patchRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    patchRequest.setRequestHeader("Accept", "application/json");
+
+    patchRequest.send();
+   
+
+
+}
+
+
+
+
+
+
+
 let chosenSeats = []
 let seatsList = []
 function getSeats(data){
@@ -277,3 +367,4 @@ function addBooking(email){
         
 
 }
+
