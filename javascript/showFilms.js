@@ -13,7 +13,6 @@ function getAllFilmsByDate(date){
     frontPage.style.display = "block"
 
 fetchDataByUrl(`${baseURL}/filmShowingsByDate/${date}`).then(data => {
-   console.log(data)
     let movieNames = []
     //kører igennem data altså alle filmshowings
     for (let i = 0; i < data.length; i++) {

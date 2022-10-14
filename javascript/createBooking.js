@@ -147,11 +147,9 @@ function createBookingPage(data){
 
 
 function updateFilmShowing (filmShowing) {
-    console.log(filmShowing)
     let filmShowingPriceValue =  document.getElementById('inputFilmShowingPrice').value
     let dateValue = document.getElementById('inputFilmShowingDate').value
     let filmShowingTimeValue = document.getElementById('inputFilmShowingTime').value
-    console.log(baseURL + 'updateFilmShowing/' + filmShowing.filmShowingId + '/film/' + filmShowing.film.id + '/room/' + filmShowing.room.id + '?price=' + filmShowingPriceValue + '&date=' + dateValue + '&time=' + filmShowingTimeValue)
     var patchRequest = new XMLHttpRequest();
     patchRequest.open('PATCH', baseURL + 'updateFilmShowing/' + filmShowing.filmShowingId + '/film/' + filmShowing.film.id + '/room/' + filmShowing.room.id + '?price=' + filmShowingPriceValue + '&date=' + dateValue + '&time=' + filmShowingTimeValue);
     patchRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -189,6 +187,18 @@ function getSeats(data){
     //reseter lige containeren
     seatsContainer.innerHTML = ''
 
+    //tag og gem værden fra select tickets
+    // metode, der tager et row og et indextal
+
+
+
+
+    
+
+
+    
+  
+    
     
     for (let i = 0; i < room.rows.length; i++) {
         const row = document.createElement('div')
@@ -196,7 +206,11 @@ function getSeats(data){
         seatsContainer.appendChild(row)
 
         for (let j = 0; j < room.rows[i].seats.length; j++) {
+
+
+
            
+
             const seat = document.createElement('div')
             seat.classList.add('seat')
             if(seatsList.includes(room.rows[i].seats[j].id)){
@@ -204,6 +218,10 @@ function getSeats(data){
             }else{
                 seat.addEventListener('click', (e) => {
                     
+
+                    
+
+                    /*
                     if(seat.classList.contains('selected')){
                         seat.classList.remove('selected')
                         chosenSeats.splice(chosenSeats.indexOf(room.rows[i].seats[j].id,1))
@@ -211,17 +229,64 @@ function getSeats(data){
                         chosenSeats.push(room.rows[i].seats[j].id)
                         seat.classList.add('selected')
                     }
+                    */
+
+
+
 
 
                 })
             }
-            
+        
+
             row.appendChild(seat)
             
            
         }
         
     }
+
+    
+    const seatsContainerElement = document.querySelectorAll('.seatsContainer .seat')
+    let rowValue = room.rows[0].seats.length;
+    for (let i = 0; i < seatsContainerElement.length; i++) {
+        
+        seatsContainerElement[i].addEventListener('click', (e) => {
+            const ticketValue = document.getElementById('qty_input').value
+            let index = 1;
+            
+            for (let j = 0; j < ticketValue; j++) {
+
+                if(j == 0){
+                    seatsContainerElement[i].classList.add('selected')
+                }
+                if(j % 2 === 1 && !(j == 0)){
+                    seatsContainerElement[i-index].classList.add('selected')
+                }else if(j % 2 === 0 && !(j == 0)){
+                    seatsContainerElement[i+index].classList.add('selected')
+                    index = index + 1
+                }
+                
+
+                
+                //seatsContainerElement[i-j].classList.add('selected')
+
+                
+                if(parseInt(i-j) % rowValue === 0){
+                    console.log('hejj')
+                    return
+                   }
+                   
+            }
+
+        })
+        
+    }
+        
+    
+
+    
+
 })
 
 
