@@ -254,29 +254,50 @@ function getSeats(data){
         seatsContainerElement[i].addEventListener('click', (e) => {
             const ticketValue = document.getElementById('qty_input').value
             let index = 1;
+
+            let leftEdge = true
+            let rightEdge = true
+
+            //clear lige klassen med selected
+            seatsContainerElement.forEach(seat => {
+                seat.classList.remove('selected')
+            })
+
             
             for (let j = 0; j < ticketValue; j++) {
-
+                //selected den man klikker på
                 if(j == 0){
                     seatsContainerElement[i].classList.add('selected')
                 }
-                if(j % 2 === 1 && !(j == 0)){
-                    seatsContainerElement[i-index].classList.add('selected')
-                }else if(j % 2 === 0 && !(j == 0)){
-                    seatsContainerElement[i+index].classList.add('selected')
-                    index = index + 1
+
+
+
+                //tjekker om den rammer en edge på venstre side
+                if(parseInt(i-index) % rowValue === rowValue-1){
+                    leftEdge = false
+                    
                 }
-                
 
-                
-                //seatsContainerElement[i-j].classList.add('selected')
 
-                
-                if(parseInt(i-j) % rowValue === 0){
-                    console.log('hejj')
-                    return
-                   }
-                   
+                //tjekker om den rammer en edge på højre side
+                if(parseInt(i+index) % rowValue === 0){
+                    rightEdge = false
+                    console.log('hej')
+                }
+
+                //går til venstre
+                if(j % 2 === 1 && !(j == 0) && leftEdge){
+                    seatsContainerElement[i-index].classList.add('selected')
+                //går til højre
+                }else if(j % 2 === 0 && !(j == 0) && rightEdge){
+                    seatsContainerElement[i+index].classList.add('selected')
+                }
+
+
+                if(j % 2 === 0 && !(j == 0)){
+                index = index + 1
+                }
+            
             }
 
         })
@@ -288,6 +309,8 @@ function getSeats(data){
     
 
 })
+
+
 
 
 
