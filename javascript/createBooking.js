@@ -109,14 +109,6 @@ function createBookingPage(data){
     filmBookingContainer_infoText.appendChild(date)
 
 
-  
-
-    /*
-    const room = document.createElement('p')
-    description.innerHTML = data.film.room
-    filmBookingContainer_infoText.appendChild(room)
-    */
-
     const actor = document.createElement('p')
     actor.innerHTML = '<span class= "film_info_text_titles"> Cast: </span>' + data.film.actors
     filmBookingContainer_infoText.appendChild(actor)
@@ -137,6 +129,10 @@ function createBookingPage(data){
     const time = document.createElement('p')
     time.innerHTML = '<span class= "film_info_text_titles"> Start Time: </span>' + data.time
     filmBookingContainer_infoText.appendChild(time)
+/*
+    const room = document.createElement('p')
+    description.innerHTML = '<span class= "film_info_text_titles"> Room: </span>' + data.room
+    filmBookingContainer_infoText.appendChild(room)*/
 
     const price = document.createElement('p')
     time.innerHTML = '<span class= "film_info_text_titles"> Price: </span>' + data.price + '<span class= "film_info_text_titles2">DKK</span>'
