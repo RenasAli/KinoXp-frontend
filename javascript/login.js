@@ -7,7 +7,8 @@ const navLogIn = document.getElementById("navLogIn")
 const createFilmShowing = document.getElementById("createFilmShowingModalButton")
 
 
-var userLogin = null
+
+
 
 
 loginButton.addEventListener('click', (e) => {
@@ -15,8 +16,7 @@ loginButton.addEventListener('click', (e) => {
     const testFailLogin = document.getElementById('loginFail')
     
 
-    fetchDataByUrl("http://localhost:8080/get/user/" + usernameForm.value).then(data => {
-    
+    fetchDataByUrl(`${baseURL}/get/user/` + usernameForm.value).then(data => {
     
 
     //man skal lige nu klikke 2 gange
@@ -27,7 +27,7 @@ loginButton.addEventListener('click', (e) => {
         userLogin = data
         navLogIn.style.display = 'none'
         navLogOut.style.display = 'block'
-
+        isAdmin = true
         loginButton.setAttribute("data-bs-dismiss", "modal")
         loginButton.setAttribute("data-dismiss", "modal")
         loginButton.setAttribute("aria-label", "Close")
@@ -76,7 +76,6 @@ function whenAdmin(){
     createMovieButton.style.display = 'block'
     createFilmShowing.style.display = 'block'
 }
-
 
 
 

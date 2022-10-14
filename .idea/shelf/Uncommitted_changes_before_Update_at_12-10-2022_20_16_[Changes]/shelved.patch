@@ -1,0 +1,387 @@
+Index: html/testAll.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title>KinoXP</title>\r\n  <!-- CSS only -->\r\n  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\"\r\n    integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\r\n  <link rel=\"stylesheet\" href=\"../styles/style.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/filmContainer.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/createShowFilmContainer.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/createFilmContainer.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/slider.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/signinModal.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/createBooking.css\">\r\n</head>\r\n\r\n<body>\r\n\r\n  <nav style=\"height: 10vh;\" class=\"navbar navbar-dark bg-dark justify-content-around\">\r\n    <img id=\"navLogo\" src=\"../pictures/Logo.png\" alt=\"asdfsd\" style=\"width: 100px\">\r\n    <!--<a class=\"navbar-brand\">Navbar</a> -->\r\n    <form class=\"form-inline\" id=\"navBarForm\">\r\n      <button type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" id=\"navHome\">Home</button>\r\n      <button type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" data-toggle=\"modal\" data-target=\"#login\"\r\n        id=\"navLogIn\">Log in</button>\r\n      <button style=\"display: none;\" type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" id=\"navLogOut\">Log\r\n        out</button>\r\n      <button style=\"display: none;\" type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" data-toggle=\"modal\"\r\n        data-target=\"#exampleModal\" id=\"modal2\">Create film</button>\r\n      <button style=\"display: none;\" type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" data-toggle=\"modal\"\r\n        data-target=\"#createFilmShowingModal\" id=\"createFilmShowingModalButton\">Create Filmshowing</button>\r\n    </form>\r\n  </nav>\r\n\r\n\r\n  <!-- Modal  for createFilmShwoing-->\r\n  <div class=\"modal fade\" id=\"createFilmShowingModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"exampleModalLabel\">Create Filmshowing</h5>\r\n          <button type=\"button\" class=\"btn-close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <div id=\"createFilmShowingContainer\" class=\"createFilmShowingContainer\"></div>\r\n          <form>\r\n            <div class=\"form-group\">\r\n              <label for=\"createFilmName\">Name of movie</label>\r\n              <input style=\"color: black;\" type=\"text\" class=\"form-control\" id=\"createFilmName\" placeholder=\"\" readonly>\r\n            </div>\r\n            <!--  \r\n              <div class=\"form-group\">\r\n                <label for=\"createFilmLength\">Enter length</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"createFilmLength\" placeholder=\"e.g 160\">\r\n              </div>\r\n              -->\r\n            <div class=\"form-group\">\r\n              <label for=\"createFilmRoom\">Enter room</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"createFilmRoom\" placeholder=\"e.g 1 or 2\">\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"createFilmTicketPrice\">Enter bio ticketprice</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"createFilmTicketPrice\" placeholder=\"e.g 80\">\r\n            </div>\r\n            <label for=\"startDateLabel\">Start date:</label>\r\n            <div class=\"form-group\">\r\n              <input class=\"form-control\" type=\"date\" id=\"createFilmStartDate\" value=\"2022-10-01\" min=\"2022-07-10\"\r\n                max=\"2023-12-31\">\r\n            </div>\r\n\r\n            <label for=\"startTimeLabel\">Time for movie start</label>\r\n            <div class=\"form-group\">\r\n              <input class=\"form-control\" type=\"time\" id=\"createFilmStartTime\" required>\r\n            </div>\r\n          </form>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\"\r\n            id=\"createFilmShowingConfirmButton\">Add</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- Modal create film -->\r\n  <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabe\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h1 class=\"modal-title fs-5\" id=\"exampleModalLabelll\">Create Film</h1>\r\n          <button type=\"button\" class=\"btn-close border-0\" data-bs-dismiss=\"modal\" data-dismiss=\"modal\"\r\n            aria-label=\"Close\">x</button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <div class=\"createFilmContainer\">\r\n            <input type=\"text\" id=\"search-film-input\" placeholder=\"Search here...\">\r\n            <div>\r\n              <button type=\"button\" class=\"btn btn-secondary\" id=\"search-film-button\">Search</button>\r\n            </div>\r\n          </div>\r\n          <div id=\"movie-container\">\r\n          </div>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\" data-dismiss=\"modal\">Close</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- Modal 2 for sign in -->\r\n  <div class=\"modal fade\" id=\"login\" type=\"submit\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"exampleModalLabel\">Log in</h5>\r\n          <h3><button type=\"button\" class=\"btn-close\" aria-label=\"Close\" data-dismiss=\"modal\">\r\n              <span aria-hidden=\"true\">&times;</span>\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body\" id=\"modalBody\">\r\n          <div class=\"form-outline mb-4\">\r\n            <input type=\"text\" id=\"usernameForm\" class=\"form-control\" />\r\n            <label class=\"form-label\" for=\"usernameForm\">Username</label>\r\n          </div>\r\n          <div class=\"form-outline mb-4\">\r\n            <input type=\"password\" id=\"passwordForm\" class=\"form-control\" />\r\n            <label class=\"form-label\" for=\"passwordForm\">Password</label>\r\n          </div>\r\n          <p style=\"display: none; color: red; font-size: 12px;\" id=\"loginFail\"> asdfasdf</p>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold\" id=\"loginButton\">Sign in</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  <div class=\"frontPage\">\r\n\r\n    <!--slider-->\r\n    <div class=\"carousel\">\r\n      <div class=\"carousel__item\">\r\n        <div class=\"carousel_content\">\r\n          <div class=\"carousel_content_img\">\r\n          </div>\r\n          <!--Banner shadow-->\r\n          <div class=\"carousel_content_shadow\"></div>\r\n          <!--BannerText\r\n  <div class=\"carousel_text\"><h1>Spider-Man™: Far From Home</h1>\r\n    <button>KØB BILLET</button>\r\n  </div>-->\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"carousel__item\">\r\n        <div class=\"carousel_content\">\r\n          <div class=\"carousel_content_img\"></div>\r\n        </div>\r\n      </div>\r\n      <div class=\"carousel__item\">\r\n        <div class=\"carousel_content\">\r\n          <div class=\"carousel_content_img\"></div>\r\n        </div>\r\n      </div>\r\n      <div class=\"carousel__nav\">\r\n        <span class=\"carousel__button\"></span>\r\n        <span class=\"carousel__button\"></span>\r\n        <span class=\"carousel__button\"></span>\r\n      </div>\r\n    </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n    <div class=\"moviecontainer\">\r\n\r\n      <div class=\"buttonDateContainer\">\r\n        <button class=\"dateButton btn btn-outline-danger\">10-10</button>\r\n        <button class=\"dateButton btn btn-outline-danger\">10-11</button>\r\n        <button class=\"dateButton btn btn-outline-danger\">10-12</button>\r\n        <button class=\"dateButton btn btn-outline-danger\">10-13</button>\r\n\r\n\r\n      </div>\r\n\r\n\r\n      <div class=\"individualFilmContainer\"></div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  <div class=\"filmBookingContainer\" style=\"display: none;\">\r\n\r\n    <div class=\"filmBookingContainer_info\"></div>\r\n\r\n\r\n\r\n\r\n\r\n    <div class=\"filmBookingContainer_flex\">\r\n\r\n\r\n\r\n      <div class=\"filmBookingContainer_form\">\r\n        <h2>SELECT TICKETS</h2>\r\n        <h6>Select the number and type of tickets you wish to buy.<br>Please note seats are reserved on a best available\r\n          basis.\r\n        </h6>\r\n\r\n\r\n        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.1.1/css/all.css\"\r\n          integrity=\"sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ\" crossorigin=\"anonymous\">\r\n        <!-- Container Div-->\r\n          <div class=\"container mt-5\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\"></div>\r\n            <div class=\"col-sm-4 col-sm-offset-4\">\r\n              <div class=\"input-group mb-3\">\r\n                <div class=\"input-group-prepend\">\r\n                  <button class=\"btn btn-dark btn-sm\" id=\"minus-btn\"><i class=\"fa fa-minus\"></i></button>\r\n                </div>\r\n                <input type=\"number\" id=\"qty_input\" class=\"form-control form-control-sm\" value=\"1\" min=\"1\">\r\n                <div class=\"input-group-prepend\">\r\n                  <button class=\"btn btn-dark btn-sm\" id=\"plus-btn\"><i class=\"fa fa-plus\"></i></button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\"></div>\r\n          </div>\r\n            <!-- Reservation Details -->\r\n          <div class=\"col-sm-5\">\r\n\r\n          <div class=\"form-group\" >\r\n            <label for=\"inputEmailCustomer\">Email address</label>\r\n            <input type=\"email\" class=\"form-control\"  id=\"inputEmailCustomer\" aria-describedby=\"emailHelp\"\r\n              placeholder=\"Enter email\">\r\n          </div>\r\n\r\n          <div class=\"form-group\">\r\n            <label for=\"inputNameCustomer\" >Full name</label>\r\n            <input type=\"text\" class=\"form-control \" id=\"inputNameCustomer\" aria-describedby=\"emailHelp\"\r\n              placeholder=\"Enter full name\">\r\n          </div>\r\n        </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n        </div>\r\n      </div>\r\n\r\n\r\n      <div class=\"filmBookingContainer_booking\">\r\n        <div class=\"screen\"></div>\r\n  \r\n        <button type=\"button\" class=\"btn btn-light reserveButton\" id=\"reserveBookingButton\">Reserve</button>\r\n      </div>\r\n\r\n      </div>\r\n\r\n\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  <script src=\"../javascript/fetch.js\"></script>\r\n\r\n  <!-- bootstrap -->\r\n  <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"\r\n    integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\"\r\n    crossorigin=\"anonymous\"></script>\r\n  <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js\"\r\n    integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\"\r\n    crossorigin=\"anonymous\"></script>\r\n  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js\"\r\n    integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"\r\n    crossorigin=\"anonymous\"></script>\r\n\r\n  <script src=\"../javascript/highPriority.js\"></script>\r\n  <script src=\"../javascript/createBooking.js\"></script>\r\n  <script src=\"../javascript/login.js\"></script>\r\n  <script src=\"../javascript/showFilms.js\"></script>\r\n  <script src=\"../javascript/create-film.js\"></script>\r\n  <script src=\"../javascript/create-film-showing.js\"></script>\r\n  <script src=\"../javascript/slider.js\"></script>\r\n\r\n</body>\r\n\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/html/testAll.html b/html/testAll.html
+--- a/html/testAll.html	(revision 22be3237428592f7c8d6e4eddfdddda20bd0fc4f)
++++ b/html/testAll.html	(date 1665592622845)
+@@ -20,298 +20,58 @@
+ 
+ <body>
+ 
+-  <nav style="height: 10vh;" class="navbar navbar-dark bg-dark justify-content-around">
+-    <img id="navLogo" src="../pictures/Logo.png" alt="asdfsd" style="width: 100px">
+-    <!--<a class="navbar-brand">Navbar</a> -->
+-    <form class="form-inline" id="navBarForm">
+-      <button type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" id="navHome">Home</button>
+-      <button type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal" data-target="#login"
+-        id="navLogIn">Log in</button>
+-      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" id="navLogOut">Log
+-        out</button>
+-      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal"
+-        data-target="#exampleModal" id="modal2">Create film</button>
+-      <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal"
+-        data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
+-    </form>
+-  </nav>
++  <div class="all-containers">
++
++    <div>
++
++      <nav style="height: 10vh;" class="navbar navbar-dark bg-dark justify-content-around">
++        <img id="navLogo" src="../pictures/Logo.png" alt="asdfsd" style="width: 100px">
++        <!--<a class="navbar-brand">Navbar</a> -->
++        <form class="form-inline" id="navBarForm">
++          <button type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" id="navHome">Home</button>
++          <button type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal" data-target="#login"
++            id="navLogIn">Log in</button>
++          <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" id="navLogOut">Log
++            out</button>
++          <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal"
++            data-target="#exampleModal" id="modal2">Create film</button>
++          <button style="display: none;" type="button" class="btn btn-dark ml-1 mr-1 bold, text-danger" data-toggle="modal"
++            data-target="#createFilmShowingModal" id="createFilmShowingModalButton">Create Filmshowing</button>
++        </form>
++
++      </nav>
+ 
+-
+-  <!-- Modal  for createFilmShwoing-->
+-  <div class="modal fade" id="createFilmShowingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+-    aria-hidden="true">
+-    <div class="modal-dialog" role="document">
+-      <div class="modal-content">
+-        <div class="modal-header">
+-          <h5 class="modal-title" id="exampleModalLabel">Create Filmshowing</h5>
+-          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+-            <span aria-hidden="true">&times;</span>
+-          </button>
+-        </div>
+-        <div class="modal-body">
+-          <div id="createFilmShowingContainer" class="createFilmShowingContainer"></div>
+-          <form>
+-            <div class="form-group">
+-              <label for="createFilmName">Name of movie</label>
+-              <input style="color: black;" type="text" class="form-control" id="createFilmName" placeholder="" readonly>
+-            </div>
+-            <!--  
+-              <div class="form-group">
+-                <label for="createFilmLength">Enter length</label>
+-                <input type="text" class="form-control" id="createFilmLength" placeholder="e.g 160">
+-              </div>
+-              -->
+-            <div class="form-group">
+-              <label for="createFilmRoom">Enter room</label>
+-              <input type="text" class="form-control" id="createFilmRoom" placeholder="e.g 1 or 2">
+-            </div>
+-            <div class="form-group">
+-              <label for="createFilmTicketPrice">Enter bio ticketprice</label>
+-              <input type="text" class="form-control" id="createFilmTicketPrice" placeholder="e.g 80">
+-            </div>
+-            <label for="startDateLabel">Start date:</label>
+-            <div class="form-group">
+-              <input class="form-control" type="date" id="createFilmStartDate" value="2022-10-01" min="2022-07-10"
+-                max="2023-12-31">
+-            </div>
+-
+-            <label for="startTimeLabel">Time for movie start</label>
+-            <div class="form-group">
+-              <input class="form-control" type="time" id="createFilmStartTime" required>
+-            </div>
+-          </form>
+-        </div>
+-        <div class="modal-footer">
+-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+-          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+-            id="createFilmShowingConfirmButton">Add</button>
+-        </div>
+-      </div>
+-    </div>
+-  </div>
++    </div>
+ 
+-
+-  <!-- Modal create film -->
+-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
+-    <div class="modal-dialog">
+-      <div class="modal-content">
+-        <div class="modal-header">
+-          <h1 class="modal-title fs-5" id="exampleModalLabelll">Create Film</h1>
+-          <button type="button" class="btn-close border-0" data-bs-dismiss="modal" data-dismiss="modal"
+-            aria-label="Close">x</button>
+-        </div>
+-        <div class="modal-body">
+-          <div class="createFilmContainer">
+-            <input type="text" id="search-film-input" placeholder="Search here...">
+-            <div>
+-              <button type="button" class="btn btn-secondary" id="search-film-button">Search</button>
+-            </div>
+-          </div>
+-          <div id="movie-container">
+-          </div>
+-        </div>
+-        <div class="modal-footer">
+-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">Close</button>
+-        </div>
+-      </div>
+-    </div>
+-  </div>
+-
+-
+-  <!-- Modal 2 for sign in -->
+-  <div class="modal fade" id="login" type="submit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+-    aria-hidden="true">
+-    <div class="modal-dialog" role="document">
+-      <div class="modal-content">
+-        <div class="modal-header">
+-          <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+-          <h3><button type="button" class="btn-close" aria-label="Close" data-dismiss="modal">
+-              <span aria-hidden="true">&times;</span>
+-            </button>
+-        </div>
+-        <div class="modal-body" id="modalBody">
+-          <div class="form-outline mb-4">
+-            <input type="text" id="usernameForm" class="form-control" />
+-            <label class="form-label" for="usernameForm">Username</label>
+-          </div>
+-          <div class="form-outline mb-4">
+-            <input type="password" id="passwordForm" class="form-control" />
+-            <label class="form-label" for="passwordForm">Password</label>
+-          </div>
+-          <p style="display: none; color: red; font-size: 12px;" id="loginFail"> asdfasdf</p>
+-        </div>
+-        <div class="modal-footer">
+-          <button type="button" class="btn btn-dark ml-1 mr-1 bold" id="loginButton">Sign in</button>
+-        </div>
+-      </div>
+-    </div>
+-  </div>
+-
+-
++    <!-- 1 -->
++    <div>
+ 
+-
+-
+-
+-
+-
+-  <div class="frontPage">
+-
+-    <!--slider-->
+-    <div class="carousel">
+-      <div class="carousel__item">
+-        <div class="carousel_content">
+-          <div class="carousel_content_img">
+-          </div>
+-          <!--Banner shadow-->
+-          <div class="carousel_content_shadow"></div>
+-          <!--BannerText
+-  <div class="carousel_text"><h1>Spider-Man™: Far From Home</h1>
+-    <button>KØB BILLET</button>
+-  </div>-->
+-        </div>
+-      </div>
+-
+-      <div class="carousel__item">
+-        <div class="carousel_content">
+-          <div class="carousel_content_img"></div>
+-        </div>
+-      </div>
+-      <div class="carousel__item">
+-        <div class="carousel_content">
+-          <div class="carousel_content_img"></div>
+-        </div>
+-      </div>
+-      <div class="carousel__nav">
+-        <span class="carousel__button"></span>
+-        <span class="carousel__button"></span>
+-        <span class="carousel__button"></span>
+-      </div>
+-    </div>
+-
+-
+-
+-
+-
+-
+-    <div class="moviecontainer">
+-
+-      <div class="buttonDateContainer">
+-        <button class="dateButton btn btn-outline-danger">10-10</button>
+-        <button class="dateButton btn btn-outline-danger">10-11</button>
+-        <button class="dateButton btn btn-outline-danger">10-12</button>
+-        <button class="dateButton btn btn-outline-danger">10-13</button>
+-
+-
+-      </div>
+-
+-
+-      <div class="individualFilmContainer"></div>
+-
+-    </div>
+-
+-  </div>
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++    </div>
++
++    <!-- 2 -->
++    <div>
++
++<div></div>
++<div></div>
++<div></div>
++
++    </div>
+ 
+-
++    <!-- 3 -->
++    <div>
++      
++      <div></div>
++      <div></div>
+ 
+-
+-
+-
+-
+-
+-  <div class="filmBookingContainer" style="display: none;">
+-
+-    <div class="filmBookingContainer_info"></div>
+-
+-
+-
+-
+-
+-    <div class="filmBookingContainer_flex">
+-
+-
+-
+-      <div class="filmBookingContainer_form">
+-        <h2>SELECT TICKETS</h2>
+-        <h6>Select the number and type of tickets you wish to buy.<br>Please note seats are reserved on a best available
+-          basis.
+-        </h6>
+-
+-
+-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+-          integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+-        <!-- Container Div-->
+-          <div class="container mt-5">
+-          <div class="row">
+-            <div class="col-sm-4"></div>
+-            <div class="col-sm-4 col-sm-offset-4">
+-              <div class="input-group mb-3">
+-                <div class="input-group-prepend">
+-                  <button class="btn btn-dark btn-sm" id="minus-btn"><i class="fa fa-minus"></i></button>
+-                </div>
+-                <input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1">
+-                <div class="input-group-prepend">
+-                  <button class="btn btn-dark btn-sm" id="plus-btn"><i class="fa fa-plus"></i></button>
+-                </div>
+-              </div>
+-            </div>
+-            <div class="col-sm-4"></div>
+-          </div>
+-            <!-- Reservation Details -->
+-          <div class="col-sm-5">
+-
+-          <div class="form-group" >
+-            <label for="inputEmailCustomer">Email address</label>
+-            <input type="email" class="form-control"  id="inputEmailCustomer" aria-describedby="emailHelp"
+-              placeholder="Enter email">
+-          </div>
+-
+-          <div class="form-group">
+-            <label for="inputNameCustomer" >Full name</label>
+-            <input type="text" class="form-control " id="inputNameCustomer" aria-describedby="emailHelp"
+-              placeholder="Enter full name">
+-          </div>
+-        </div>
+-
+-
+-
+-
+-
+-
+-        </div>
+-      </div>
+-
+-
+-      <div class="filmBookingContainer_booking">
+-        <div class="screen"></div>
+-  
+-        <button type="button" class="btn btn-light reserveButton" id="reserveBookingButton">Reserve</button>
+-      </div>
+-
+-      </div>
+-
+-
+-
+-
+     </div>
+ 
++
++
++
++
++
++
++
+   </div>
+ 
+ 
+@@ -331,9 +91,6 @@
+ 
+ 
+ 
+-
+-
+-
+   <script src="../javascript/fetch.js"></script>
+ 
+   <!-- bootstrap -->
+Index: html/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title>KinoXP</title>\r\n  <!-- CSS only -->\r\n  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\"\r\n    integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\r\n  <link rel=\"stylesheet\" href=\"../styles/style.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/filmContainer.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/createShowFilmContainer.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/createFilmContainer.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/slider.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/signinModal.css\">\r\n  <link rel=\"stylesheet\" href=\"../styles/createBooking.css\">\r\n</head>\r\n\r\n<body>\r\n\r\n  <nav style=\"height: 10vh;\" class=\"navbar navbar-dark bg-dark justify-content-around\">\r\n    <img id=\"navLogo\" src=\"../pictures/Logo.png\" alt=\"asdfsd\" style=\"width: 100px\">\r\n    <!--<a class=\"navbar-brand\">Navbar</a> -->\r\n    <form class=\"form-inline\" id=\"navBarForm\">\r\n      <button type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" id=\"navHome\">Home</button>\r\n      <button type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" data-toggle=\"modal\" data-target=\"#login\"\r\n        id=\"navLogIn\">Log in</button>\r\n      <button style=\"display: none;\" type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" id=\"navLogOut\">Log\r\n        out</button>\r\n      <button style=\"display: none;\" type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" data-toggle=\"modal\"\r\n        data-target=\"#exampleModal\" id=\"modal2\">Create film</button>\r\n      <button style=\"display: none;\" type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold, text-danger\" data-toggle=\"modal\"\r\n        data-target=\"#createFilmShowingModal\" id=\"createFilmShowingModalButton\">Create Filmshowing</button>\r\n    </form>\r\n  </nav>\r\n\r\n\r\n  <!-- Modal  for createFilmShwoing-->\r\n  <div class=\"modal fade\" id=\"createFilmShowingModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"exampleModalLabel\">Create Filmshowing</h5>\r\n          <button type=\"button\" class=\"btn-close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <div id=\"createFilmShowingContainer\" class=\"createFilmShowingContainer\"></div>\r\n          <form>\r\n            <div class=\"form-group\">\r\n              <label for=\"createFilmName\">Name of movie</label>\r\n              <input style=\"color: black;\" type=\"text\" class=\"form-control\" id=\"createFilmName\" placeholder=\"\" readonly>\r\n            </div>\r\n            <!--  \r\n              <div class=\"form-group\">\r\n                <label for=\"createFilmLength\">Enter length</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"createFilmLength\" placeholder=\"e.g 160\">\r\n              </div>\r\n              -->\r\n            <div class=\"form-group\">\r\n              <label for=\"createFilmRoom\">Enter room</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"createFilmRoom\" placeholder=\"e.g 1 or 2\">\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"createFilmTicketPrice\">Enter bio ticketprice</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"createFilmTicketPrice\" placeholder=\"e.g 80\">\r\n            </div>\r\n            <label for=\"startDateLabel\">Start date:</label>\r\n            <div class=\"form-group\">\r\n              <input class=\"form-control\" type=\"date\" id=\"createFilmStartDate\" value=\"2022-10-01\" min=\"2022-07-10\"\r\n                max=\"2023-12-31\">\r\n            </div>\r\n\r\n            <label for=\"startTimeLabel\">Time for movie start</label>\r\n            <div class=\"form-group\">\r\n              <input class=\"form-control\" type=\"time\" id=\"createFilmStartTime\" required>\r\n            </div>\r\n          </form>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\"\r\n            id=\"createFilmShowingConfirmButton\">Add</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- Modal create film -->\r\n  <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabe\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h1 class=\"modal-title fs-5\" id=\"exampleModalLabelll\">Create Film</h1>\r\n          <button type=\"button\" class=\"btn-close border-0\" data-bs-dismiss=\"modal\" data-dismiss=\"modal\"\r\n            aria-label=\"Close\">x</button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <div class=\"createFilmContainer\">\r\n            <input type=\"text\" id=\"search-film-input\" placeholder=\"Search here...\">\r\n            <div>\r\n              <button type=\"button\" class=\"btn btn-secondary\" id=\"search-film-button\">Search</button>\r\n            </div>\r\n          </div>\r\n          <div id=\"movie-container\">\r\n          </div>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\" data-dismiss=\"modal\">Close</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- Modal 2 for sign in -->\r\n  <div class=\"modal fade\" id=\"login\" type=\"submit\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"exampleModalLabel\">Log in</h5>\r\n          <h3><button type=\"button\" class=\"btn-close\" aria-label=\"Close\" data-dismiss=\"modal\">\r\n              <span aria-hidden=\"true\">&times;</span>\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body\" id=\"modalBody\">\r\n          <div class=\"form-outline mb-4\">\r\n            <input type=\"text\" id=\"usernameForm\" class=\"form-control\" />\r\n            <label class=\"form-label\" for=\"usernameForm\">Username</label>\r\n          </div>\r\n          <div class=\"form-outline mb-4\">\r\n            <input type=\"password\" id=\"passwordForm\" class=\"form-control\" />\r\n            <label class=\"form-label\" for=\"passwordForm\">Password</label>\r\n          </div>\r\n          <p style=\"display: none; color: red; font-size: 12px;\" id=\"loginFail\"> asdfasdf</p>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-dark ml-1 mr-1 bold\" id=\"loginButton\">Sign in</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  <div class=\"frontPage\">\r\n\r\n    <!--slider-->\r\n    <div class=\"carousel\">\r\n      <div class=\"carousel__item\">\r\n        <div class=\"carousel_content\">\r\n          <div class=\"carousel_content_img\">\r\n          </div>\r\n          <!--Banner shadow-->\r\n          <div class=\"carousel_content_shadow\"></div>\r\n          <!--BannerText\r\n  <div class=\"carousel_text\"><h1>Spider-Man™: Far From Home</h1>\r\n    <button>KØB BILLET</button>\r\n  </div>-->\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"carousel__item\">\r\n        <div class=\"carousel_content\">\r\n          <div class=\"carousel_content_img\"></div>\r\n        </div>\r\n      </div>\r\n      <div class=\"carousel__item\">\r\n        <div class=\"carousel_content\">\r\n          <div class=\"carousel_content_img\"></div>\r\n        </div>\r\n      </div>\r\n      <div class=\"carousel__nav\">\r\n        <span class=\"carousel__button\"></span>\r\n        <span class=\"carousel__button\"></span>\r\n        <span class=\"carousel__button\"></span>\r\n      </div>\r\n    </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n    <div class=\"moviecontainer\">\r\n\r\n      <div class=\"buttonDateContainer\">\r\n        <button class=\"dateButton btn btn-outline-danger\">10-10</button>\r\n        <button class=\"dateButton btn btn-outline-danger\">10-11</button>\r\n        <button class=\"dateButton btn btn-outline-danger\">10-12</button>\r\n        <button class=\"dateButton btn btn-outline-danger\">10-13</button>\r\n\r\n\r\n      </div>\r\n\r\n\r\n      <div class=\"individualFilmContainer\"></div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  <div class=\"filmBookingContainer\" style=\"display: none;\">\r\n\r\n    <div class=\"filmBookingContainer_info\"></div>\r\n\r\n\r\n\r\n\r\n\r\n    <div class=\"filmBookingContainer_flex\">\r\n\r\n\r\n\r\n      <div class=\"filmBookingContainer_form\">\r\n        <h2>SELECT TICKETS</h2>\r\n        <h6>Select the number and type of tickets you wish to buy.<br>Please note seats are reserved on a best available\r\n          basis.\r\n        </h6>\r\n\r\n\r\n        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.1.1/css/all.css\"\r\n          integrity=\"sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ\" crossorigin=\"anonymous\">\r\n        <!-- Container Div-->\r\n          <div class=\"container mt-5\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\"></div>\r\n            <div class=\"col-sm-4 col-sm-offset-4\">\r\n              <div class=\"input-group mb-3\">\r\n                <div class=\"input-group-prepend\">\r\n                  <button class=\"btn btn-dark btn-sm\" id=\"minus-btn\"><i class=\"fa fa-minus\"></i></button>\r\n                </div>\r\n                <input type=\"number\" id=\"qty_input\" class=\"form-control form-control-sm\" value=\"1\" min=\"1\">\r\n                <div class=\"input-group-prepend\">\r\n                  <button class=\"btn btn-dark btn-sm\" id=\"plus-btn\"><i class=\"fa fa-plus\"></i></button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\"></div>\r\n          </div>\r\n            <!-- Reservation Details -->\r\n          <div class=\"col-sm-5\">\r\n\r\n          <div class=\"form-group\" >\r\n            <label for=\"inputEmailCustomer\">Email address</label>\r\n            <input type=\"email\" class=\"form-control\"  id=\"inputEmailCustomer\" aria-describedby=\"emailHelp\"\r\n              placeholder=\"Enter email\">\r\n          </div>\r\n\r\n          <div class=\"form-group\">\r\n            <label for=\"inputNameCustomer\" >Full name</label>\r\n            <input type=\"text\" class=\"form-control \" id=\"inputNameCustomer\" aria-describedby=\"emailHelp\"\r\n              placeholder=\"Enter full name\">\r\n          </div>\r\n        </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n        </div>\r\n      </div>\r\n\r\n\r\n      <div class=\"filmBookingContainer_booking\">\r\n        <div class=\"screen\"></div>\r\n  \r\n        <button type=\"button\" class=\"btn btn-light reserveButton\" id=\"reserveBookingButton\">Reserve</button>\r\n      </div>\r\n\r\n      </div>\r\n\r\n\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  <script src=\"../javascript/fetch.js\"></script>\r\n\r\n  <!-- bootstrap -->\r\n  <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"\r\n    integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\"\r\n    crossorigin=\"anonymous\"></script>\r\n  <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js\"\r\n    integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\"\r\n    crossorigin=\"anonymous\"></script>\r\n  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js\"\r\n    integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"\r\n    crossorigin=\"anonymous\"></script>\r\n\r\n  <script src=\"../javascript/highPriority.js\"></script>\r\n  <script src=\"../javascript/createBooking.js\"></script>\r\n  <script src=\"../javascript/login.js\"></script>\r\n  <script src=\"../javascript/showFilms.js\"></script>\r\n  <script src=\"../javascript/create-film.js\"></script>\r\n  <script src=\"../javascript/create-film-showing.js\"></script>\r\n  <script src=\"../javascript/slider.js\"></script>\r\n\r\n</body>\r\n\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/html/index.html b/html/index.html
+--- a/html/index.html	(revision 22be3237428592f7c8d6e4eddfdddda20bd0fc4f)
++++ b/html/index.html	(date 1665596334392)
+@@ -238,7 +238,11 @@
+ 
+   <div class="filmBookingContainer" style="display: none;">
+ 
+-    <div class="filmBookingContainer_info"></div>
++    <div>
++      <div class="filmBookingContainer_info"></div>
++    </div>
++
++    
+ 
+ 
+ 

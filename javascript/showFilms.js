@@ -9,9 +9,10 @@ function getAllFilmsByDate(date){
     const container = document.querySelector(".individualFilmContainer")
 
     container.replaceChildren()
+    const frontPage = document.querySelector('.frontPage')
+    frontPage.style.display = "block"
 
-
-fetchDataByUrl("http://localhost:8080/filmShowingsByDate/" + date).then(data => {
+fetchDataByUrl(`${baseURL}/filmShowingsByDate/${date}`).then(data => {
    console.log(data)
     let movieNames = []
     //kører igennem data altså alle filmshowings
@@ -80,12 +81,12 @@ fetchDataByUrl("http://localhost:8080/filmShowingsByDate/" + date).then(data => 
 
             //her adder vi event for hvad der sker når man klikker på knappen :)
             startTime.addEventListener('click', (e) => {
-                console.log('hej')
+                createBookingPage(data[i])
             })
         
     }
   
-
+    initialisePosters()
 
     
 })
@@ -126,8 +127,7 @@ function formatDate(date){
     let month = date.getUTCMonth() + 1; //months from 1-12
     let day = date.getUTCDate();
     let year = date.getUTCFullYear();
-    console.log(day + "-" + month + "-" + year)
-    return day + "-" + month + "-" + year;
+    return year + "-" + month + "-" + day;
 }
 
 

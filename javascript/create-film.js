@@ -33,7 +33,7 @@ function getInput() {
             imageElement.addEventListener("click", e => {
             
                 let request = new XMLHttpRequest();
-                request.open("POST", "http://localhost:8080/api/film/add-film")
+                request.open("POST", baseURL + "api/film/add-film")
 
                 request.setRequestHeader("Accept", "application/json");
         

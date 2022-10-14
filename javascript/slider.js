@@ -54,11 +54,20 @@
     
 
   
-    initialisePosters()
-
-
+    
+    let executed = false;
+//kaldt i showFilms så vi kan vente på at alle bliver loaded ind i filen
     function initialisePosters(){
-      setTimeout(() => {
+      
+
+      //sørger for at funktion kun bliver kaldt en gang
+      
+      if(executed){
+        return
+      }
+      executed = true
+
+
         const carouselContentImg = document.querySelectorAll('.carousel_content_img')
         const carouselContent = document.querySelectorAll('.carousel_content')
 
@@ -67,7 +76,7 @@
         //Shuffle the posters
         const shuffledPosters = posters.sort((a, b) => 0.5 - Math.random());
         
-        for (let i = 0; i < shuffledPosters.length; i++) {
+        for (let i = 0; i < carouselContent.length; i++) {
           const img = document.createElement('img')
           img.src = shuffledPosters[i].poster
           carouselContentImg[i].appendChild(img)
@@ -87,6 +96,7 @@
           div.classList.add('carousel_content_shadow')
           carouselContent[i].appendChild(shadowDiv) */
         }
-      },100)
+      
       
     }
+

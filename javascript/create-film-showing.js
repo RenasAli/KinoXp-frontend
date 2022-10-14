@@ -16,7 +16,7 @@ function addEventListenerToCreateFilmShowing(){
 createFilmShowingButton.addEventListener('click', addDataToCreateFilmContainer =  (e) => {
     
     const filmContainer = document.querySelector('.createFilmShowingContainer')
-    fetchDataByUrl('http://localhost:8080/api/film/all').then(data =>{
+    fetchDataByUrl(`${baseURL}/api/film/all`).then(data =>{
         
         // for at tømme containeren inden vi adder alle elementerne
         filmContainer.innerHTML = ''
@@ -69,24 +69,24 @@ const createFilmShowingConfirmButton = document.getElementById('createFilmShowin
 
 createFilmShowingConfirmButton.addEventListener('click', (e) => {
 
+    const createFilmStartDate = document.getElementById('createFilmStartDate')
+    const createFilmStartTime = document.getElementById('createFilmStartTime')
+    const createFilmRoom = document.getElementById('createFilmRoom')
+    const createFilmTicketPrice = document.getElementById('createFilmTicketPrice')
+
     let request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:8080/addFilmShowing")
+    request.open("POST", baseURL + "addFilmShowing/" + movieData.id + "/room/" + createFilmRoom.value)
 
     request.setRequestHeader("Accept", "application/json");
 
     // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    const createFilmStartDate = document.getElementById('createFilmStartDate')
-    const createFilmStartTime = document.getElementById('createFilmStartTime')
-    const createFilmRoom = document.getElementById('createFilmRoom')
-    const createFilmTicketPrice = document.getElementById('createFilmTicketPrice')
+    
       
-
+    //"room": ${JSON.stringify(createFilmRoom.value)},
     let movieShowingData = `{
         "time": ${JSON.stringify(createFilmStartTime.value)},
         "date": ${JSON.stringify(createFilmStartDate.value)},
-        "film": ${JSON.stringify(movieData)},
-        "room": ${JSON.stringify(createFilmRoom.value)},
         "price": ${JSON.parse(createFilmTicketPrice.value)}
         }`;
         
@@ -96,8 +96,8 @@ createFilmShowingConfirmButton.addEventListener('click', (e) => {
 
         //det her er ikke kønt. Erstat med noget await async ????
     setTimeout( () => {
-        refreshFilmShowingContainer()
-    },300)
+        getAllFilmsByDate(formatDate(new Date))
+    },1000)
     
 
    

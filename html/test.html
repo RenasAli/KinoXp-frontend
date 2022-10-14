@@ -1,104 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/sliderTEST.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/filmContainer.css">
+  <link rel="stylesheet" href="../styles/createShowFilmContainer.css">
+  <link rel="stylesheet" href="../styles/createFilmContainer.css">
+  <link rel="stylesheet" href="../styles/slider.css">
+  <link rel="stylesheet" href="../styles/signinModal.css">
+  <link rel="stylesheet" href="../styles/styletest.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 </head>
+
 <body>
- 
 
+  <div class="filmBookingContainer">
+    <div class="filmBookingContainer_info">
 
+      <img
+        src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/movie-poster-template-design-21a1c803fe4ff4b858de24f5c91ec57f_screen.jpg?ts=1636996180"
+        alt="">
 
-
-
-
-  <div class="carousel">
-    <div class="carousel__item">
-      <div class="carousel_content">
-        <div class="carousel_content_img">
-        <img src="https://sm.ign.com/t/ign_za/gallery/s/spider-man/spider-man-far-from-home-official-movie-posters_ex7e.1080.jpg" alt="">
+      <div class="filmBookingContainer_infoText">
+        <p>Title</p>
+        <p>Date</p>
+        <p>Description Lroigjidogvjoidfgvjmivnoivneiosvjiosdjvoisdsfiokj fjsmdfok smjdofkijmsd jmdsojc</p>
+        <p>Room</p>
+        <p>Genre: Drama, Action, etc.</p>
+        <p>Actors: Martin Greystone, Sarah Solarstorm...</p>
+        <p style="color:rgb(174, 151, 7);">16:30</p>
+        <p>Rating: PG-13</p>
+        <p>Length</p>
+        <p>Price</p>
       </div>
-       <!--BannerText
-    <div class="carousel_text"><h1>Spider-Man™: Far From Home</h1>
-      <button>KØB BILLET</button>
-    </div>-->
-      </div>
-   
     </div>
-    
-    
-    <div class="carousel__item">
-      <div class="carousel_content">
-        <div class="carousel_content_img">
-        
-      </div>
-      </div>
-
-    </div>
-    <div class="carousel__item">
-      <div class="carousel_content">
-        <div class="carousel_content_img">
-       
-      </div>
-      </div>
-
-    </div>
-    <div class="carousel__nav">
-      <span class="carousel__button"></span>
-      <span class="carousel__button"></span>
-      <span class="carousel__button"></span>
-  </div>
   </div>
 
 
 
 
 
+  <div class="filmBookingContainer_flex">
+    <div class="filmBookingContainer_form">
 
+      <h2>SELECT TICKETS</h2>
+      <h6>Select the number and type of tickets you wish to buy.<br>Please note seats are reserved on a best available
+        basis.
+      </h6>
 
-
-  <!--
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner containerCarousel" >
-      <div style="height: 55vh;" class="carousel-item active">
-       
-        <video class="img-fluid" autoplay loop muted>
-          <source src="https://mdbcdn.b-cdn.net/img/video/Tropical.mp4" type="video/mp4" />
-        </video>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4 col-sm-offset-4">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <button class="btn btn-dark btn-sm" id="minus-btn"><i class="fa fa-minus"></i></button>
+              </div>
+              <input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1">
+              <div class="input-group-prepend">
+                <button class="btn btn-dark btn-sm" id="plus-btn"><i class="fa fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4"></div>
+        </div>
       </div>
-      <video class="img-fluid" autoplay loop muted>
-        <source src="https://mdbcdn.b-cdn.net/img/video/forest.mp4" type="video/mp4" />
-      </video>
-      <div class="carousel-item">
-        <video class="img-fluid" autoplay loop muted>
-          <source src="https://mdbcdn.b-cdn.net/img/video/Agua-natural.mp4" type="video/mp4" />
-        </video>
-      </div>
+
+      <form>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-2">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+      </form>
+
+
+
+
+
+
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
--->
+    <div class="filmBookingContainer_booking">
 
-    <!-- bootstrap -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="../javascript/sliderTEST.js"></script>
+
+
+      <div class="screen"></div>
+
+      <!-- row 1 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+
+      <!-- row 2 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+
+      <!-- row 3 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+
+      <ul class="showcase">
+        <li>
+          <div class="seat"></div>
+          <small>N/A</small>
+        </li>
+        <li>
+          <div class="seat selected"></div>
+          <small>Selected</small>
+        </li>
+        <li>
+          <div class="seat occupied"></div>
+          <small>Occupied</small>
+        </li>
+      </ul>
+
+
+
+
+      <button type="button" class="btn btn-light reserveButton">Reserve</button>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+  <!-- bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../javascript/login.js"></script>
+  <script src="../javascript/showFilms.js"></script>
+  <script src="../javascript/create-film.js"></script>
+  <script src="../javascript/create-film-showing.js"></script>
+  <script src="../javascript/slider.js"></script>
+  <script src="../javascript/createBooking.js"></script>
+
 </body>
+
 </html>
