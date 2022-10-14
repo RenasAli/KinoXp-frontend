@@ -15,6 +15,7 @@ background: linear-gradient(20deg, rgba(0,0,0,1) 55%, rgba(143,0,0,1) 100%);
   height: auto;
   display: flex;
   justify-content: space-between;
+  padding-top: 30px;
 
   color: white;
 }
@@ -66,7 +67,7 @@ font-size: 18px;
 
  color: white;
  width: 50%;
- height: 55vh;
+ height: auto;
  display: inline-flex;
  flex-direction: column;
  justify-content: center;
@@ -92,7 +93,7 @@ margin: 0 auto;
 
 .filmBookingContainer_booking{
   width: 40%;
-  height: 55vh;
+  height: auto;
 
   display: flex;
   flex-direction: column;
@@ -105,6 +106,7 @@ margin: 0 auto;
 .showcase{
   display: flex;
   flex-direction: row;
+  padding-left: 0px;
   
 }
 .showcase li{
@@ -161,7 +163,7 @@ margin: 0 auto;
 
 .reserveButton{
   position: relative;
-  top: 50%;
+  top: -10%;
   left: 50%; 
   color:  rgb(143, 0, 0);;
   background-color: black;
