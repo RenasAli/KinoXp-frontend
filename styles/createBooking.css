@@ -98,10 +98,9 @@ body{
 .showcase{
     display: flex;
     flex-direction: row;
-    
 }
 .showcase li{
-    margin: 20px;
+  margin: 20px;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -153,8 +152,9 @@ body{
   }
 
   .reserveButton{
-    top: 50%;
-    left: 50%; 
+    position: relative;
+    bottom: 12%;
+    left: 60%; 
     color:  rgb(143, 0, 0);;
     background-color: black;
     border: 2px solid rgb(143, 0, 0);
