@@ -1,167 +1,175 @@
 body{
-    color: white;
+  color: white;
 }
 
 .filmBookingContainer{
-  background-color: #000000;
-  background: linear-gradient(20deg, rgba(0,0,0,1) 55%, rgba(143,0,0,1) 100%);
-  
+background-color: #000000;
+background: linear-gradient(20deg, rgba(0,0,0,1) 55%, rgba(143,0,0,1) 100%);
+
 }
 
 
 .filmBookingContainer_info{
-    width: 100%;
-    /*height: 35vh; */
-    height: auto;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  /*height: 35vh; */
+  height: auto;
+  display: flex;
+  justify-content: space-between;
 
-    color: white;
+  color: white;
 }
 .filmBookingContainer_info img{
-    height: 90%;
-    align-self: center;
-    padding-left: 5%;
-    padding-right: 2%;
+  height: 90%;
+  align-self: center;
+  padding-left: 5%;
+  padding-right: 2%;
 }
 
 
 .filmBookingContainer_infoText{
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: flex-start;
-    padding-right: 20%;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 20%;
 }
 .filmBookingContainer_infoText p {
-    align-self: center;
-    font-size: 24px;
+  align-self: center;
+  font-size: 24px;
 }
 
 .filmBookingContainer_infoText .film_title{
-  font-size: 50px;
-  font-weight: 500;
+font-size: 50px;
+font-weight: 500;
 }
 
 .filmBookingContainer_infoText .film_description{
-  font-size: 18px;
-  color: rgb(187, 187, 187);
+font-size: 18px;
+color: rgb(187, 187, 187);
 }
 
 .filmBookingContainer_infoText .film_info_text_titles{
-  color: rgb(187, 187, 187);
+color: rgb(187, 187, 187);
 }
 .filmBookingContainer_infoText .film_info_text_titles2{
-  color: rgb(187, 187, 187);
-  font-size: 18px;
+color: rgb(187, 187, 187);
+font-size: 18px;
 }
 
 .filmBookingContainer_flex{
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .filmBookingContainer_form{
- 
-   color: white;
-   width: 50%;
-   height: 55vh;
-   display: inline-flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+
+ color: white;
+ width: 50%;
+ height: 55vh;
+ display: inline-flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 
 
 .col-sm-4 .col-sm-offset-4{
-  width: 10%;
+width: 10%;
 }
 
 /*Email adress + Full name*/
 .filmBookingContainer_form .form-group{ 
- 
+
 }
 
 .filmBookingContainer_form .col-sm-5{
-  margin: 0 auto;
+margin: 0 auto;
 }
 
-.filmBookingContainer_booking{  
-    width: 40%;
-    height: 55vh;
-    display: flex;
-    flex-direction: column;
-    color: white; /* Hvad gør den her?*/
-    align-items: center;
+
+
+
+.filmBookingContainer_booking{
+  width: 40%;
+  height: 55vh;
+
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  justify-content: center;
 }
+
+
 .showcase{
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  
 }
 .showcase li{
   margin: 20px;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .seat {
-    background-color: #444451;
-    height: 16px;/*height= width*0.8, så det ikke ser lort ud*/
-    width: 20px; 
-    margin: 3px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  .filmBookingContainer_booking .seat:hover{
-    cursor: pointer;
-    background-color: #202031;
-  }
+  background-color: #444451;
+  height: 16px;/*height= width*0.8, så det ikke ser lort ud*/
+  width: 20px; 
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.filmBookingContainer_booking .seat:hover{
+  cursor: pointer;
+  background-color: #202031;
+}
 
-  .filmBookingContainer_booking .seat:active{
-    background-color: #fff;
-  }
+.filmBookingContainer_booking .seat:active{
+  background-color: #fff;
+}
 
-  .filmBookingContainer_booking .seat.occupied:hover{
-    cursor: not-allowed;
-    background-color: rgb(143, 0, 0);
-  }
-  
-  .seat.selected {
-    background-color: #fff;
-  }
+.filmBookingContainer_booking .seat.occupied:hover{
+  cursor: not-allowed;
+  background-color: rgb(143, 0, 0);
+}
 
-  .seat.selected:hover{
-    cursor: unset;
-    background-color: #fff;
-  }
-  
-  .seat.occupied {
-    background-color: rgb(143, 0, 0);
-  }
+.seat.selected {
+  background-color: #fff;
+}
 
-  .screen {
-    background-color: #fff;
-    height: 70px;
-    width:40%;
-    margin: 15px 0;
-    transform: rotateX(-45deg);
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
-  }
+.seat.selected:hover{
+  cursor: unset;
+  background-color: #fff;
+}
 
-  .reserveButton{
-    position: relative;
-    bottom: 12%;
-    left: 60%; 
-    color:  rgb(143, 0, 0);;
-    background-color: black;
-    border: 2px solid rgb(143, 0, 0);
-  }
-  .reserveButton:hover{
-    cursor: pointer;
-    background-color: #dc3545;
-    color: black;
-    border: 2px solid #dc3545;
-  }
+.seat.occupied {
+  background-color: rgb(143, 0, 0);
+}
+
+.screen {
+  background-color: #fff;
+  height: 70px;
+  width:40%;
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.reserveButton{
+  position: relative;
+  top: 50%;
+  left: 50%; 
+  color:  rgb(143, 0, 0);;
+  background-color: black;
+  border: 2px solid rgb(143, 0, 0);
+}
+.reserveButton:hover{
+  cursor: pointer;
+  background-color: #dc3545;
+  color: black;
+  border: 2px solid #dc3545;
+}
