@@ -213,12 +213,14 @@ function getSeats(data){
 
             const seat = document.createElement('div')
             seat.classList.add('seat')
+            seat.setAttribute('data-id', room.rows[i].seats[j].id)
+            
             if(seatsList.includes(room.rows[i].seats[j].id)){
                 seat.classList.add('occupied')
             }else{
                 seat.addEventListener('click', (e) => {
                     
-
+                    
                     
 
                     /*
@@ -252,54 +254,57 @@ function getSeats(data){
     for (let i = 0; i < seatsContainerElement.length; i++) {
         
         seatsContainerElement[i].addEventListener('click', (e) => {
-            const ticketValue = document.getElementById('qty_input').value
+            let ticketValue = document.getElementById('qty_input').value
             let index = 1;
 
             let leftEdge = true
             let rightEdge = true
 
+            chosenSeats = []
             //clear lige klassen med selected
             seatsContainerElement.forEach(seat => {
                 seat.classList.remove('selected')
             })
 
-            
-            for (let j = 0; j < ticketValue; j++) {
-                //selected den man klikker på
-                if(j == 0){
-                    seatsContainerElement[i].classList.add('selected')
-                }
 
-
+             //selected den man klikker på
+            seatsContainerElement[i].classList.add('selected')
+            chosenSeats.push(seatsContainerElement[i].getAttribute('data-id'))
+            let j = 1
+            while(ticketValue > 1) {
+               
 
                 //tjekker om den rammer en edge på venstre side
                 if(parseInt(i-index) % rowValue === rowValue-1){
                     leftEdge = false
-                    
                 }
 
 
                 //tjekker om den rammer en edge på højre side
                 if(parseInt(i+index) % rowValue === 0){
                     rightEdge = false
-                    console.log('hej')
                 }
 
                 //går til venstre
-                if(j % 2 === 1 && !(j == 0) && leftEdge){
+                if(j % 2 === 1 && leftEdge){
                     seatsContainerElement[i-index].classList.add('selected')
+                    ticketValue = ticketValue - 1
+                    chosenSeats.push(seatsContainerElement[i-index].getAttribute('data-id'))
                 //går til højre
-                }else if(j % 2 === 0 && !(j == 0) && rightEdge){
+                }else if(j % 2 === 0 && rightEdge){
                     seatsContainerElement[i+index].classList.add('selected')
+                    ticketValue = ticketValue - 1
+                    chosenSeats.push(seatsContainerElement[i+index].getAttribute('data-id'))
                 }
 
 
-                if(j % 2 === 0 && !(j == 0)){
+                if(j % 2 === 0){
                 index = index + 1
                 }
-            
-            }
 
+                j = j + 1
+            }
+            console.log(chosenSeats)
         })
         
     }
