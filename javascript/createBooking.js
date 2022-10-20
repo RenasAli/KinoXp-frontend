@@ -168,7 +168,7 @@ function updateFilmShowing (filmShowing) {
 
 
 let chosenSeats = []
-let seatsList = []
+let alreadyBookedSeats = []
 function getSeats(data){
     let room = data.room
     const bookingContainer = document.querySelector('.filmBookingContainer_booking')
@@ -178,7 +178,7 @@ function getSeats(data){
 
         for (let j = 0; j < bookedSeats.length; j++) {
         for (let i = 0; i < bookedSeats[j].seats.length; i++) {
-            seatsList.push(bookedSeats[j].seats[i].id)
+            alreadyBookedSeats.push(bookedSeats[j].seats[i].id)
         }
     }
     
@@ -215,12 +215,10 @@ function getSeats(data){
             seat.classList.add('seat')
             seat.setAttribute('data-id', room.rows[i].seats[j].id)
             
-            if(seatsList.includes(room.rows[i].seats[j].id)){
+            if(alreadyBookedSeats.includes(room.rows[i].seats[j].id)){
                 seat.classList.add('occupied')
             }else{
                 seat.addEventListener('click', (e) => {
-                    
-                    
                     
 
                     /*
@@ -250,69 +248,80 @@ function getSeats(data){
 
     
     const seatsContainerElement = document.querySelectorAll('.seatsContainer .seat')
-    let rowValue = room.rows[0].seats.length;
+    let seatsPerRow = room.rows[0].seats.length;
     for (let i = 0; i < seatsContainerElement.length; i++) {
         
-        seatsContainerElement[i].addEventListener('click', (e) => {
-            let ticketValue = document.getElementById('qty_input').value
-            let index = 1;
+        if(!seatsContainerElement[i].classList.contains('occupied')) {
+            seatsContainerElement[i].addEventListener('click', (e) => {
+                let remainingTickets = document.getElementById('qty_input').value
+                let index = 1;
+    
+                let hasNotHitLeftEdgeYet = true
+                let hasNotHitRightEdgeYet = true
+                let leftSideIsBooked = false;
+                let rightSideIsBooked = false;
+    
+                chosenSeats = []
+                //clear lige klassen med selected
+                seatsContainerElement.forEach(seat => {
+                    seat.classList.remove('selected')
+                })
+    
+    
+                 //selected den man klikker på
+                seatsContainerElement[i].classList.add('selected')
+                chosenSeats.push(seatsContainerElement[i].getAttribute('data-id'))
+                let j = 1
+                while(remainingTickets > 1) {
 
-            let leftEdge = true
-            let rightEdge = true
-
-            chosenSeats = []
-            //clear lige klassen med selected
-            seatsContainerElement.forEach(seat => {
-                seat.classList.remove('selected')
+                
+                    if(i === 0 || seatsContainerElement[i-index].classList.contains('occupied')) {
+                        leftSideIsBooked = true;
+                    }
+                    if(seatsContainerElement[i+index].classList.contains('occupied')) {
+                        rightSideIsBooked = true;
+                    }
+    
+                    //tjekker om den rammer en edge på venstre side
+                    if(parseInt(i-index) % seatsPerRow === seatsPerRow - 1 || i === 0){
+                        hasNotHitLeftEdgeYet = false
+                    }
+    
+    
+                    //tjekker om den rammer en edge på højre side
+                    if(parseInt(i+index) % seatsPerRow === 0){
+                        hasNotHitRightEdgeYet = false
+                    }
+    
+                    //går til venstre
+                    if((j % 2 === 1 && hasNotHitLeftEdgeYet) && !leftSideIsBooked){
+                        seatsContainerElement[i-index].classList.add('selected')
+                        remainingTickets = remainingTickets - 1
+                        chosenSeats.push(seatsContainerElement[i-index].getAttribute('data-id'))
+                    //går til højre
+                    }else if((j % 2 === 0 && hasNotHitRightEdgeYet) && !rightSideIsBooked){
+                        seatsContainerElement[i+index].classList.add('selected')
+                        remainingTickets = remainingTickets - 1
+                        chosenSeats.push(seatsContainerElement[i+index].getAttribute('data-id'))
+                    }
+    
+    
+                    if(j % 2 === 0){
+                    index = index + 1
+                    }
+                    if (leftSideIsBooked && rightSideIsBooked) {
+                        alert('Der er ikke plads');
+                        return;
+                    }
+    
+                    j = j + 1
+                }
+                console.log(chosenSeats)
             })
-
-
-             //selected den man klikker på
-            seatsContainerElement[i].classList.add('selected')
-            chosenSeats.push(seatsContainerElement[i].getAttribute('data-id'))
-            let j = 1
-            while(ticketValue > 1) {
-               
-
-                //tjekker om den rammer en edge på venstre side
-                if(parseInt(i-index) % rowValue === rowValue-1){
-                    leftEdge = false
-                }
-
-
-                //tjekker om den rammer en edge på højre side
-                if(parseInt(i+index) % rowValue === 0){
-                    rightEdge = false
-                }
-
-                //går til venstre
-                if(j % 2 === 1 && leftEdge){
-                    seatsContainerElement[i-index].classList.add('selected')
-                    ticketValue = ticketValue - 1
-                    chosenSeats.push(seatsContainerElement[i-index].getAttribute('data-id'))
-                //går til højre
-                }else if(j % 2 === 0 && rightEdge){
-                    seatsContainerElement[i+index].classList.add('selected')
-                    ticketValue = ticketValue - 1
-                    chosenSeats.push(seatsContainerElement[i+index].getAttribute('data-id'))
-                }
-
-
-                if(j % 2 === 0){
-                index = index + 1
-                }
-
-                j = j + 1
-            }
-            console.log(chosenSeats)
-        })
+        }
+        
         
     }
-        
-    
-
-    
-
 })
 
 
@@ -339,7 +348,7 @@ const showcase = document.querySelector('.showcase')
 
                  //reseter lige listerne
                  chosenSeats = []
-                 seatsList = []
+                 alreadyBookedSeats = []
 }
 
 
@@ -374,7 +383,7 @@ function postCustomerAndBooking(){
 
 
     }).catch(error => {
-        //hvis customer ikke finder
+        //hvis customer ikke findes
         addCustomer(inputEmailCustomer.value,inputNameCustomer.value)
         
         setTimeout(() => {
@@ -397,31 +406,6 @@ reserveBookingButton.addEventListener('click', postCustomerAndBooking)
 
 
 
-function addCustomer(email, firstname){
-
-    let request = new XMLHttpRequest();
-    request.open("POST", baseURL + "api/customer/add")
-
-    request.setRequestHeader("Accept", "application/json");
-
-    // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    
-      
-    
-    let customerData = `{
-        "ferstName": ${JSON.stringify(firstname)},
-        "email": ${JSON.stringify(email)}
-        }`;
-        
-    
-    
-    request.send(customerData);
-        
-
-    
-    
-}
 
 
 

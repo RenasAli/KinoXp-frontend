@@ -48,20 +48,11 @@ createFilmShowingButton.addEventListener('click', addDataToCreateFilmContainer =
             })
 
         }
-
-        
-
-        
+     
     })
 })
 
 }
-
-
-
-
-
-
         
 const createFilmShowingConfirmButton = document.getElementById('createFilmShowingConfirmButton')
 
