@@ -263,9 +263,7 @@ function getSeats(data){
     
                 chosenSeats = []
                 //clear lige klassen med selected
-                seatsContainerElement.forEach(seat => {
-                    seat.classList.remove('selected')
-                })
+                emptySeats(seatsContainerElement)
     
     
                  //selected den man klikker på
@@ -274,11 +272,11 @@ function getSeats(data){
                 let j = 1
                 while(remainingTickets > 1) {
 
-                
+                    console.log(i+index)
                     if(i === 0 || seatsContainerElement[i-index].classList.contains('occupied')) {
                         leftSideIsBooked = true;
                     }
-                    if(seatsContainerElement[i+index].classList.contains('occupied')) {
+                    if(i === seatsContainerElement.length-1 || seatsContainerElement[i+index].classList.contains('occupied')) {
                         rightSideIsBooked = true;
                     }
     
@@ -311,6 +309,8 @@ function getSeats(data){
                     }
                     if (leftSideIsBooked && rightSideIsBooked) {
                         alert('Der er ikke plads');
+                        chosenSeats = []
+                        emptySeats(seatsContainerElement)
                         return;
                     }
     
@@ -349,6 +349,16 @@ const showcase = document.querySelector('.showcase')
                  //reseter lige listerne
                  chosenSeats = []
                  alreadyBookedSeats = []
+
+            function emptySeats(seatsList){
+                seatsList.forEach(seat => {
+                    seat.classList.remove('selected')
+                })
+            }
+
+
+
+
 }
 
 
