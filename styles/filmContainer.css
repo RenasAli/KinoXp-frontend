@@ -56,10 +56,11 @@ font-weight: 400;
     display: flex;
     justify-content: center;
     gap: 0px 20px;
-    
+ 
 }
 .dateButton{
     padding: 10px 20px;
+    z-index: 100;
 }
 
 .individualFilmContainer{
@@ -75,6 +76,7 @@ font-weight: 400;
     width: 20%;
     margin: 20px;
     transition: transform 0.2s;
+    z-index: 100;
     
 }
 .filmPoster{
