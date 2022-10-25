@@ -144,7 +144,7 @@ margin: 0 auto;
 }
 
 .seat.selected:hover{
-  cursor: unset;
+  cursor: pointer;
   background-color: #fff;
 }
 

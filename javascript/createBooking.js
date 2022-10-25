@@ -147,11 +147,9 @@ function createBookingPage(data){
 
 
 function updateFilmShowing (filmShowing) {
-    console.log(filmShowing)
     let filmShowingPriceValue =  document.getElementById('inputFilmShowingPrice').value
     let dateValue = document.getElementById('inputFilmShowingDate').value
     let filmShowingTimeValue = document.getElementById('inputFilmShowingTime').value
-    console.log(baseURL + 'updateFilmShowing/' + filmShowing.filmShowingId + '/film/' + filmShowing.film.id + '/room/' + filmShowing.room.id + '?price=' + filmShowingPriceValue + '&date=' + dateValue + '&time=' + filmShowingTimeValue)
     var patchRequest = new XMLHttpRequest();
     patchRequest.open('PATCH', baseURL + 'updateFilmShowing/' + filmShowing.filmShowingId + '/film/' + filmShowing.film.id + '/room/' + filmShowing.room.id + '?price=' + filmShowingPriceValue + '&date=' + dateValue + '&time=' + filmShowingTimeValue);
     patchRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -170,7 +168,7 @@ function updateFilmShowing (filmShowing) {
 
 
 let chosenSeats = []
-let seatsList = []
+let alreadyBookedSeats = []
 function getSeats(data){
     let room = data.room
     const bookingContainer = document.querySelector('.filmBookingContainer_booking')
@@ -180,7 +178,7 @@ function getSeats(data){
 
         for (let j = 0; j < bookedSeats.length; j++) {
         for (let i = 0; i < bookedSeats[j].seats.length; i++) {
-            seatsList.push(bookedSeats[j].seats[i].id)
+            alreadyBookedSeats.push(bookedSeats[j].seats[i].id)
         }
     }
     
@@ -189,6 +187,18 @@ function getSeats(data){
     //reseter lige containeren
     seatsContainer.innerHTML = ''
 
+    //tag og gem værden fra select tickets
+    // metode, der tager et row og et indextal
+
+
+
+
+    
+
+
+    
+  
+    
     
     for (let i = 0; i < room.rows.length; i++) {
         const row = document.createElement('div')
@@ -196,14 +206,22 @@ function getSeats(data){
         seatsContainer.appendChild(row)
 
         for (let j = 0; j < room.rows[i].seats.length; j++) {
+
+
+
            
+
             const seat = document.createElement('div')
             seat.classList.add('seat')
-            if(seatsList.includes(room.rows[i].seats[j].id)){
+            seat.setAttribute('data-id', room.rows[i].seats[j].id)
+            
+            if(alreadyBookedSeats.includes(room.rows[i].seats[j].id)){
                 seat.classList.add('occupied')
             }else{
                 seat.addEventListener('click', (e) => {
                     
+
+                    /*
                     if(seat.classList.contains('selected')){
                         seat.classList.remove('selected')
                         chosenSeats.splice(chosenSeats.indexOf(room.rows[i].seats[j].id,1))
@@ -211,18 +229,102 @@ function getSeats(data){
                         chosenSeats.push(room.rows[i].seats[j].id)
                         seat.classList.add('selected')
                     }
+                    */
+
+
+
 
 
                 })
             }
-            
+        
+
             row.appendChild(seat)
             
            
         }
         
     }
+
+    
+    const seatsContainerElement = document.querySelectorAll('.seatsContainer .seat')
+    let seatsPerRow = room.rows[0].seats.length;
+    for (let i = 0; i < seatsContainerElement.length; i++) {
+        
+        if(!seatsContainerElement[i].classList.contains('occupied')) {
+            seatsContainerElement[i].addEventListener('click', (e) => {
+                let remainingTickets = document.getElementById('qty_input').value
+                let index = 1;
+    
+                let hasNotHitLeftEdgeYet = true
+                let hasNotHitRightEdgeYet = true
+                let leftSideIsBooked = false;
+                let rightSideIsBooked = false;
+    
+                chosenSeats = []
+                //clear lige klassen med selected
+                emptySeats(seatsContainerElement)
+    
+    
+                 //selected den man klikker på
+                seatsContainerElement[i].classList.add('selected')
+                chosenSeats.push(seatsContainerElement[i].getAttribute('data-id'))
+                let j = 1
+                while(remainingTickets > 1) {
+
+                    console.log(i+index)
+                    if(i === 0 || seatsContainerElement[i-index].classList.contains('occupied')) {
+                        leftSideIsBooked = true;
+                    }
+                    if(i === seatsContainerElement.length-1 || seatsContainerElement[i+index].classList.contains('occupied')) {
+                        rightSideIsBooked = true;
+                    }
+    
+                    //tjekker om den rammer en edge på venstre side
+                    if(parseInt(i-index) % seatsPerRow === seatsPerRow - 1 || i === 0){
+                        hasNotHitLeftEdgeYet = false
+                    }
+    
+    
+                    //tjekker om den rammer en edge på højre side
+                    if(parseInt(i+index) % seatsPerRow === 0){
+                        hasNotHitRightEdgeYet = false
+                    }
+    
+                    //går til venstre
+                    if((j % 2 === 1 && hasNotHitLeftEdgeYet) && !leftSideIsBooked){
+                        seatsContainerElement[i-index].classList.add('selected')
+                        remainingTickets = remainingTickets - 1
+                        chosenSeats.push(seatsContainerElement[i-index].getAttribute('data-id'))
+                    //går til højre
+                    }else if((j % 2 === 0 && hasNotHitRightEdgeYet) && !rightSideIsBooked){
+                        seatsContainerElement[i+index].classList.add('selected')
+                        remainingTickets = remainingTickets - 1
+                        chosenSeats.push(seatsContainerElement[i+index].getAttribute('data-id'))
+                    }
+    
+    
+                    if(j % 2 === 0){
+                    index = index + 1
+                    }
+                    if (leftSideIsBooked && rightSideIsBooked) {
+                        alert('Der er ikke plads');
+                        chosenSeats = []
+                        emptySeats(seatsContainerElement)
+                        return;
+                    }
+    
+                    j = j + 1
+                }
+                console.log(chosenSeats)
+            })
+        }
+        
+        
+    }
 })
+
+
 
 
 
@@ -246,7 +348,17 @@ const showcase = document.querySelector('.showcase')
 
                  //reseter lige listerne
                  chosenSeats = []
-                 seatsList = []
+                 alreadyBookedSeats = []
+
+            function emptySeats(seatsList){
+                seatsList.forEach(seat => {
+                    seat.classList.remove('selected')
+                })
+            }
+
+
+
+
 }
 
 
@@ -281,7 +393,7 @@ function postCustomerAndBooking(){
 
 
     }).catch(error => {
-        //hvis customer ikke finder
+        //hvis customer ikke findes
         addCustomer(inputEmailCustomer.value,inputNameCustomer.value)
         
         setTimeout(() => {
@@ -304,31 +416,6 @@ reserveBookingButton.addEventListener('click', postCustomerAndBooking)
 
 
 
-function addCustomer(email, firstname){
-
-    let request = new XMLHttpRequest();
-    request.open("POST", baseURL + "api/customer/add")
-
-    request.setRequestHeader("Accept", "application/json");
-
-    // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    
-      
-    
-    let customerData = `{
-        "ferstName": ${JSON.stringify(firstname)},
-        "email": ${JSON.stringify(email)}
-        }`;
-        
-    
-    
-    request.send(customerData);
-        
-
-    
-    
-}
 
 
 
