@@ -270,15 +270,19 @@ function getSeats(data){
                 seatsContainerElement[i].classList.add('selected')
                 chosenSeats.push(seatsContainerElement[i].getAttribute('data-id'))
                 let j = 1
+                
                 while(remainingTickets > 1) {
 
-                    console.log(i+index)
-                    if(i === 0 || seatsContainerElement[i-index].classList.contains('occupied')) {
-                        leftSideIsBooked = true;
-                    }
-                    if(i === seatsContainerElement.length-1 || seatsContainerElement[i+index].classList.contains('occupied')) {
+                    console.log(i-index)
+                    
+                    if(!rightSideIsBooked && (i+index === seatsContainerElement.length || seatsContainerElement[i+index].classList.contains('occupied'))) {
                         rightSideIsBooked = true;
                     }
+                    
+                    if(!leftSideIsBooked && (i-index === -1 || seatsContainerElement[i-index].classList.contains('occupied'))) {
+                        leftSideIsBooked = true;
+                    }
+                
     
                     //tjekker om den rammer en edge på venstre side
                     if(parseInt(i-index) % seatsPerRow === seatsPerRow - 1 || i === 0){
@@ -316,7 +320,8 @@ function getSeats(data){
     
                     j = j + 1
                 }
-                console.log(chosenSeats)
+            
+               
             })
         }
         
