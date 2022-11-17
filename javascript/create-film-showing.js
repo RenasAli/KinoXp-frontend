@@ -65,30 +65,43 @@ createFilmShowingConfirmButton.addEventListener('click', (e) => {
     const createFilmRoom = document.getElementById('createFilmRoom')
     const createFilmTicketPrice = document.getElementById('createFilmTicketPrice')
 
-    let request = new XMLHttpRequest();
+  /*   let request = new XMLHttpRequest();
     request.open("POST", baseURL + "addFilmShowing/" + movieData.id + "/room/" + createFilmRoom.value)
 
     request.setRequestHeader("Accept", "application/json");
 
     // UTF-08 ER MEGA VIGTIG HVIS DET SKAL VIRKE!!!!!!!!!!!!!
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8"); */
     
       
-    //"room": ${JSON.stringify(createFilmRoom.value)},
-    let movieShowingData = `{
-        "time": ${JSON.stringify(createFilmStartTime.value)},
-        "date": ${JSON.stringify(createFilmStartDate.value)},
-        "price": ${JSON.parse(createFilmTicketPrice.value)}
-        }`;
+    let movieShowingBody = {
+        time: createFilmStartTime.value,
+        date: createFilmStartDate.value,
+        price: createFilmTicketPrice.value
+        };
+    const movieShowingData = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+            
+            },
+            body: JSON.stringify(movieShowingBody)
+          };
+
+        postDataByUrl(baseURL + "addFilmShowing/" + movieData.id + "/room/" + createFilmRoom.value, movieShowingData).then(() => {
+            getAllFilmsByDate(formatDate(new Date))
+        })
+
+    
         
     
     
-    request.send(movieShowingData);
+    
 
-        //det her er ikke kønt. Erstat med noget await async ????
-    setTimeout( () => {
-        getAllFilmsByDate(formatDate(new Date))
-    },1000)
+        
+    
+        
+    
     
 
    
